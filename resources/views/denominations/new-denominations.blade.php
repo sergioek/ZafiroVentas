@@ -7,8 +7,9 @@
 @stop
 
 @section('content')
+
     <p>Crear una denominación</p>
-   
+    <x-alerts/>
     @include('denominations.form.form-new-denominations')
    
 @stop

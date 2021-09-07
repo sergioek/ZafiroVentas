@@ -9,7 +9,7 @@
 @section('content')
     <p>Busque un producto</p>
     
-
+    <x-alerts/>
     @livewire('product.show-product',['idCategory'=>$id])
    
 @stop

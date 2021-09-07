@@ -1,22 +1,4 @@
-
-    <div>
-        @if (session('msg'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Exito!</strong>Se ingreso una nueva denominación.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-         @endif
-    
-      @if (session('error_file'))
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>ERROR!</strong>No se pudo cargar la denominacion.Existe un error en el fomato de arhivo cargado. Recuerde que debe ser "jpeg" o "png".
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-      @endif
+  <div>
           <form method="POST" action="{{route('denominations.store')}}" enctype="multipart/form-data">
               @method('POST')
               @csrf

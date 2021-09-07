@@ -1,16 +1,7 @@
 <div>
-    <div class="offset-lg-10">
-        <a href="{{route('products.create')}}">
-            <button class="btn-sm btn-secondary">Nuevo producto</button>
-        </a>
-    </div>
-
-    <div class="mt-3">
-        <input type="text" name="" id="" wire:model="search" class="form-control" placeholder="Ingrese un texto para buscar un producto">
-    </div>
-
-
-
+    
+    <x-button-create href="{{route('products.create')}}"/>
+    <x-search-component/>  
 
     <div class="container-row">
         <strong>Filtro de productos:</strong>
@@ -30,33 +21,6 @@
                     <p class=" text-danger">No se encontraron resultados en su busqueda</p>
             @endforelse
     </div>
-    
-       
-    <a href="#Options" data-toggle="collapse">
-        <button class="btn-small btn-primary mt-3 mb-2 offset-lg-10"><i class="fas fa-external-link-alt">
-            </i>Opciones
-        </button>
-    </a>
-
-    @if (session('alert'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Alerta!</strong>No se puede eliminar el producto.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-
-    @if(session('success'))
-        
-    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <strong>Exito!</strong>Se elimino un producto.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-
-    @endif
 
 <div class="table table-hover table-responsive">
     <table >
@@ -101,27 +65,9 @@
                     @endif
                 </td>
 
-
-            <div >
-                <td id="Options" class="collapse">
-                    <a href="{{route('products.edit',$product)}}"><button class="btn btn-primary"><i class="far fa-edit"></i></button></a>
-                </td>
-            </div>
-
-            <div>
-                <td id="Options" class="collapse">
-                    <form action="{{route('products.destroy',$product)}}" method="post">
-                        @method('delete')
-                        @csrf
-                        <a href="">
-                        <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                        </a>
-                    </form>
-                </td>
-
-               
-            </div>
-                
+                <x-options-edit href="{{route('products.edit',$product)}}"/>
+                <x-options-destoy action="{{route('products.destroy',$product)}}"/>
+                 
             </tr>
                 
                 @empty

@@ -299,6 +299,22 @@ return [
         ],
 
         [
+            'text'    => 'Monedas',
+            'icon'    => 'far fa-money-bill-alt',
+            'submenu' => [
+                [
+                    'text' => 'Ver denominaciones',
+                    'url'  => 'denominations',
+                ],
+
+                [
+                    'text' => 'Crear denominaciones',
+                    'url'  => 'denominations/create',
+                ],
+            ],
+        ],
+
+        [
             'text'    => 'Ventas',
             'icon'    => 'fas fa-cart-arrow-down',
             'submenu' => [
@@ -354,16 +370,6 @@ return [
             ],
         ],
 
-        [
-            'text'    => 'Monedas',
-            'icon'    => 'far fa-money-bill-alt',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
 
         [
             'text'    => 'Arqueos',

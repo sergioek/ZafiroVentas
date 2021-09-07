@@ -8,7 +8,7 @@
 
 @section('content')
     <p>Editar una denominación</p>
-   
+    <x-alerts/>
     @include('denominations.form.form-edit-denominations')
    
 @stop

@@ -49,7 +49,7 @@ class ProductController extends Controller
                 $image="http://localhost/ventas/public/storage/products/".$name_image;
 
             }else{
-                return redirect()->route('products.create')->with('error_file','En tipo de archivo o formato.');
+                return redirect()->route('products.create')->with('alert','En tipo de archivo o formato.');
                
             }
         }     
@@ -66,7 +66,7 @@ class ProductController extends Controller
             'waist_id'=>$request->waist_id,
             'color'=>$request->color,
             ]);
-        return redirect()->route('products.create')->with('msg','Se ingreso un nuevo producto.');
+        return redirect()->route('products.create')->with('success','Se ingreso un nuevo producto.');
            
 
     }
@@ -95,7 +95,7 @@ class ProductController extends Controller
                 $image="http://localhost/ventas/public/storage/products/".$name_image;
 
             }else{
-                return redirect()->route('products.edit')->with('error_file','En tipo de archivo o formato.');
+                return redirect()->route('products.edit')->with('alert','Error en tipo de archivo o formato.');
                
             }
         }    
@@ -112,7 +112,7 @@ class ProductController extends Controller
             'waist_id'=>$request->waist_id,
             'color'=>$request->color,
             ]);
-        return redirect()->route('products.index')->with('msg','Se edito un producto.');
+        return redirect()->route('products.index')->with('success','Se edito un producto.');
         
         
 
@@ -121,6 +121,7 @@ class ProductController extends Controller
     public function destroy(Product $product){
         $product->delete();
         $id="all";
-        return view('products.show-product',compact('id'));
+        return view('products.show-product',compact('id'))->with('success','Se elimino un producto.');
+        ;
     }
 }

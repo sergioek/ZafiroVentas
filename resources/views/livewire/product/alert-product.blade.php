@@ -1,14 +1,6 @@
 <div>
-    <div class="offset-lg-10">
-        <a href="{{route('products.create')}}">
-            <button class="btn-sm btn-secondary">Nuevo producto</button>
-        </a>
-    </div>
-
-    <div class="mt-3">
-        <input type="text" name="" id="" wire:model="search" class="form-control" placeholder="Ingrese un texto para buscar un producto">
-    </div>
-
+    <x-button-create href="{{route('products.create')}}"/>
+    <x-search-component/>  
     <div class="container-row mt-3">
         <strong>Filtro de productos:</strong>
     <div class="form-check form-check-inline">
@@ -22,16 +14,6 @@
     </div>
 </div>          
             
-      
-
-    <a href="#Options" data-toggle="collapse">
-        <button class="btn-small btn-primary mt-3 mb-2 offset-lg-10"><i class="fas fa-external-link-alt">
-            </i>Opciones
-        </button>
-    </a>
-
- 
-
 <div class="table table-hover table-responsive">
     <table >
         <thead>
@@ -73,28 +55,8 @@
                 </td>
             </form>
 
-
-
-            <div >
-                <td id="Options" class="collapse">
-                    <a href="{{route('products.edit',$product)}}"><button class="btn btn-primary"><i class="far fa-edit"></i></button></a>
-                </td>
-            </div>
-
-            <div>
-                <td id="Options" class="collapse">
-                    <form action="{{route('products.destroy',$product)}}" method="post">
-                        @method('delete')
-                        @csrf
-                        <a href="">
-                        <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                        </a>
-                    </form>
-                </td>
-
-               
-            </div>
-                
+            <x-options-edit href="{{route('products.edit',$product)}}"/>
+            <x-options-destoy action="{{route('products.destroy',$product)}}"/>
             </tr>
                 
                 @empty

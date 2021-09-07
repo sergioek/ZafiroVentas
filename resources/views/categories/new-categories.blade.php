@@ -8,7 +8,7 @@
 
 @section('content')
     <p>Crear una categoria</p>
-  
+    <x-alerts/>
     @include('categories.form.form-new-category')
 
 @stop

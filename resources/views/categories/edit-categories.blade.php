@@ -8,7 +8,7 @@
 
 @section('content')
     <p>Editar una categoria</p>
-  
+    <x-alerts/>
     @include('categories.form.form-edit-category')
 
 @stop

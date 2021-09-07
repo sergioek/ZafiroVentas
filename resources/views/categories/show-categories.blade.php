@@ -8,7 +8,7 @@
 
 @section('content')
     <p>Busque una categoria</p>
-   
+    <x-alerts/>
     @livewire('category.show-category')
    
 @stop

@@ -8,7 +8,7 @@
 
 @section('content')
     <p>Editar un producto para la venta</p>
-  
+    <x-alerts/>
     @include('products.form.form-edit-product')
 
 @stop

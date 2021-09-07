@@ -39,7 +39,7 @@ class CategoryController extends Controller
                 $image="http://localhost/ventas/public/storage/categories/".$name_image;
 
             }else{
-                return redirect()->route('categories.create')->with('error_file','En tipo de archivo o formato.');
+                return redirect()->route('categories.create')->with('alert','En tipo de archivo o formato no es correcto.');
                
             }
         }     
@@ -48,7 +48,7 @@ class CategoryController extends Controller
             'name'=>$request->name,
             'image'=>$image,
             ]);
-        return redirect()->route('categories.create')->with('msg','Se ingreso una nueva categoría.');
+        return redirect()->route('categories.create')->with('success','Se ingreso una nueva categoría.');
            
     }
 
@@ -76,7 +76,7 @@ class CategoryController extends Controller
                 $image="http://localhost/ventas/public/storage/categories/".$name_image;
 
             }else{
-                return redirect()->route('categories.create')->with('error_file','En tipo de archivo o formato.');
+                return redirect()->route('categories.create')->with('alert','En tipo de archivo o formato no es correcto.');
                
             }
         }     
@@ -86,15 +86,15 @@ class CategoryController extends Controller
             'image'=>$image,
         ]);
 
-        return redirect()->route('categories.index')->with('msg','');
+        return redirect()->route('categories.index')->with('success','La categoria se actualizo correctamente');
     
     }
     public function destroy(Category $category){
         try{
             $category->delete();
-            return redirect()->route('categories.index')->with('success','yes');
+            return redirect()->route('categories.index')->with('success','La categoria se elimino correctamente');
         }catch(Exception $e){
-            return redirect()->route('categories.index')->with('alert','nooo');
+            return redirect()->route('categories.index')->with('alert','No se pudo eliminar la categoria porque esta asociada a un producto.');
         }
         
     }

@@ -1,23 +1,5 @@
 
     <div>
-        @if (session('msg'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Exito!</strong>Se edito producto.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-         @endif
-    
-      @if (session('error_file'))
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>ERROR!</strong>No se pudo editar el producto.Existe un error en el fomato de arhivo cargado. Recuerde que debe ser "jpeg" o "png".
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-      @endif
-
           <form method="POST" action="{{route('products.update',$product)}}" enctype="multipart/form-data">
               @method('PUT')
               @csrf

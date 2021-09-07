@@ -8,7 +8,7 @@
 
 @section('content')
     <p>Crear un nuevo producto para la venta</p>
-  
+    <x-alerts/>
     @include('products.form.form-new-product')
 
 @stop

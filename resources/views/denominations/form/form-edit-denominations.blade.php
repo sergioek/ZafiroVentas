@@ -1,5 +1,4 @@
 <div>
-   
       <form method="POST" action="{{route('denominations.update',$denomination)}}" enctype="multipart/form-data">
           @method('PUT')
           @csrf

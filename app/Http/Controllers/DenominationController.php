@@ -41,14 +41,14 @@ class DenominationController extends Controller
             'value'=>$request->value,
             'image'=>$image,
             ]);
-        return redirect()->route('denominations.create')->with('msg','Se ingreso una nueva denominacion.');
+        return redirect()->route('denominations.create')->with('success','Se ingreso una nueva denominacion.');
 
     }
 
     public function destroy(Denominations $denomination){
         $denomination->delete();
-        return redirect()->route('denominations.index');
-
+        return redirect()->route('denominations.index')->with('success','Se elimino una denominacion.');
+        ;
 
     }
 
@@ -84,7 +84,7 @@ class DenominationController extends Controller
             
             ]);
 
-            return redirect()->route('denominations.index')->with('msg','Se edito una denominacion');
+            return redirect()->route('denominations.index')->with('success','Se edito una denominacion');
 
                   
     }
