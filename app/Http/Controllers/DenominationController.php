@@ -33,9 +33,6 @@ class DenominationController extends Controller
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
                 $image="http://localhost/ventas/public/storage/denominations/".$name_image;
 
-            }else{
-                return redirect()->route('denominations.create')->with('error_file','En tipo de archivo o formato.');
-               
             }
         }     
 
@@ -48,7 +45,10 @@ class DenominationController extends Controller
 
     }
 
-    public function destroy(){
+    public function destroy(Denominations $denomination){
+        $denomination->delete();
+        return redirect()->route('denominations.index');
+
 
     }
 
@@ -59,7 +59,7 @@ class DenominationController extends Controller
     }
 
     public function update(DenominationValidate $request, Denominations $denomination){
-        
+
         $image= $_FILES['image'];
         $name_image= $_FILES['image']['name'];
         $type_image= $_FILES['image']['type'];
@@ -74,21 +74,19 @@ class DenominationController extends Controller
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
                 $image="http://localhost/ventas/public/storage/denominations/".$name_image;
 
-            }else{
-                return redirect()->route('denominations.edit')->with('error_file','En tipo de archivo o formato.');
-               
             }
+        }     
             
-
             $denomination->update([
                 'type'=>$request->type,
                 'value'=>$request->value,
                 'image'=>$image,
+            
             ]);
 
-            return redirect()->route('denominations')->with('msg','Se edito una denominacion.');
-        
+            return redirect()->route('denominations.index')->with('msg','Se edito una denominacion');
+
+                  
     }
 
-}
 }
