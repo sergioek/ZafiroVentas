@@ -24,7 +24,7 @@
 @if(session('success_cart'))
 <a href="{{route('products.index')}}">
 <div class="alert alert-primary alert-dismissible fade show" role="alert">
-    <strong>Exito!</strong>{{session('success_cart')}}
+    <i class="fas fa-shopping-cart"><strong>  Exito!</strong></i>{{session('success_cart')}}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>

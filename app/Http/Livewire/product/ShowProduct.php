@@ -34,6 +34,9 @@ class ShowProduct extends Component
     }
 
     public function addCart($id){
+        if (empty($this->amount)) {
+            session()->flash('alert', 'Debe indicar la cantidad para agregar productos en el carrito');
+        }else{
         $user=auth()->user()->id;
         $cart=Cart::create([
             'amount'=>$this->amount,
@@ -41,6 +44,7 @@ class ShowProduct extends Component
             'users_id'=>$user,
         ]);
         session()->flash('success_cart', 'Producto/s agregados al carrito.Presione aqui para ver su carrito.');
+        }
         
 
     }
