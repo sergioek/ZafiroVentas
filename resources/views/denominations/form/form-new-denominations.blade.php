@@ -4,7 +4,10 @@
               @csrf
               <div class="form-group">
                 <label for="">Nombre de la denominación</label>
-                <input type="text" class="form-control" id=""placeholder="Nombre de la denominación" required name="type" value="{{old('type')}}">
+                <select name="type" id="" class="form-control" required>
+                      <option value="MONEDA">MONEDA</option>
+                      <option value="BILLETE">BILLETE</option>
+                </select>
                 @error('type')
                   <br>
                       <small class="text-danger">*{{$message}}</small>

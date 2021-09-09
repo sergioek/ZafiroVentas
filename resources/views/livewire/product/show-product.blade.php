@@ -56,9 +56,9 @@
                         </button>
                     </td>
                     @else
-                       <input type="number" class="form-control" name="" id="" max="{{$product->stock}}" min="1" value="1">
+                       <input type="number" class="form-control" name="amount" id="" max="{{$product->stock}}" min="1" value="1" wire:model="amount">
                        <td>
-                            <button class="btn btn-success">
+                            <button class="btn btn-success" wire:click="addCart({{$product->id}})">
                             <i class="fas fa-cart-arrow-down"></i>Agregar
                             </button>
                     </td> 
