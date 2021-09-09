@@ -25,6 +25,9 @@ class AlertProduct extends Component
 
     
     public function update($id){
+        $validatedData = $this->validate([
+            'amount' => 'required|numeric|min:1',
+        ]);
         $product=Product::find($id);
 
         $product->update([

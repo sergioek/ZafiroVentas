@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\product;
 
-use App\Models\Cart;
+use App\Models\CartProduct;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
@@ -18,7 +18,6 @@ class ShowProduct extends Component
     public $idCategory;
     public $filter;
     public $category;
-    public $waist;
     public $amount;
    
     use WithPagination;
@@ -34,16 +33,30 @@ class ShowProduct extends Component
     }
 
     public function addCart($id){
-        if (empty($this->amount)) {
-            session()->flash('alert', 'Debe indicar la cantidad para agregar productos en el carrito');
-        }else{
-        $user=auth()->user()->id;
-        $cart=Cart::create([
-            'amount'=>$this->amount,
-            'products_id'=>$id,
-            'users_id'=>$user,
+        $validatedData = $this->validate([
+            'amount' => 'required|numeric|',
         ]);
-        session()->flash('success_cart', 'Producto/s agregados al carrito.Presione aqui para ver su carrito.');
+        //Aunque ya tiene validacion, lo hacemos igual
+        if (empty($this->amount)) {
+            session()->flash('alert', 'Debe indicar la cantidad de cada producto para poder agregarlos en el carrito');
+        }else{
+            $user=auth()->user()->id;
+            $flight = CartProduct::where('product_id', $id)->where('user_id',$user)->first();
+                if (empty($flight)) {
+                    $cart=CartProduct::create([
+                        'amount'=>$this->amount,
+                        'product_id'=>$id,
+                        'user_id'=>$user,
+                    ]);
+                }else{
+                    $flight->update([
+                        'amount'=>$flight->amount+$this->amount,
+                    ]);
+                }
+              
+
+            session()->flash('success_cart', 'Producto/s agregados al carrito.Presione aqui para ver su carrito.');
+    
         }
         
 

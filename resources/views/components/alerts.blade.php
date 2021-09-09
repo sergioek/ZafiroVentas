@@ -22,7 +22,7 @@
 
 
 @if(session('success_cart'))
-<a href="{{route('products.index')}}">
+<a href="{{route('carts.index')}}">
 <div class="alert alert-primary alert-dismissible fade show" role="alert">
     <i class="fas fa-shopping-cart"><strong>  Exito!</strong></i>{{session('success_cart')}}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

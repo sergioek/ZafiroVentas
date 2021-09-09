@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DenominationController;
 use App\Http\Controllers\ProductController;
@@ -39,3 +40,5 @@ Route::resource('products', ProductController::class)->middleware(['auth:sanctum
 Route::get('/alert/products',[ProductController::class,'alert'])->name('products.alert')->middleware(['auth:sanctum', 'verified']);
 
 Route::resource('denominations', DenominationController::class)->middleware(['auth:sanctum', 'verified']);
+
+Route::resource('carts', CartController::class)->middleware(['auth:sanctum', 'verified']);

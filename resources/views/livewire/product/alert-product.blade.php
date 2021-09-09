@@ -39,8 +39,8 @@
                 <td>{{$product->brcode}}</td>
                 <td>{{$product->waist->waist}}</td>
                 <td><input type="color" name="" id="" value="{{$product->color}}" disabled></td>
-                <td>{{"$".$product->cost}}</td>
-                <td>{{"$".$product->price}}</td>
+                <td>{{"$".number_format($product->cost,2)}}</td>
+                <td>{{"$".number_format($product->price,2)}}</td>
                 <td>{{$product->stock}}<td>
             <form action="">
                 @csrf

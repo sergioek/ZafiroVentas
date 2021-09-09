@@ -18,7 +18,7 @@
                 
                 <div >
                         <td>{{$denomination->type}}</td>
-                        <td>{{"$".$denomination->value}}</td>
+                        <td>{{"$".number_format($denomination->value,2)}}</td>
                         <td><img src="{{$denomination->image}}" alt="70" width="70"></td> 
                 </div>
 

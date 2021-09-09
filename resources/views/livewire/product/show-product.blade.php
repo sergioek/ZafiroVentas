@@ -45,8 +45,8 @@
                 <td>{{$product->brcode}}</td>
                 <td>{{$product->waist->waist}}</td>
                 <td><input type="color" value="{{$product->color}}" name="" id="" disabled></td>
-                <td>{{"$".$product->cost}}</td>
-                <td>{{"$".$product->price}}</td>
+                <td>{{"$".number_format($product->cost,2)}}</td>
+                <td>{{"$".number_format($product->price,2)}}</td>
                 <td>
                     @if ($product->stock==0)
                     <input type="number" class="form-control" name="" id="" max="{{$product->stock}}" min="0" value="0" disabled> 
