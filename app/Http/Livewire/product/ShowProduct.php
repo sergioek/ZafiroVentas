@@ -40,8 +40,7 @@ class ShowProduct extends Component
             'products_id'=>$id,
             'users_id'=>$user,
         ]);
-        session()->flash('success', 'Post successfully updated.');
-        return view('livewire.product.show-product',compact($this->category));
+        session()->flash('success_cart', 'Producto/s agregados al carrito.Presione aqui para ver su carrito.');
         
 
     }

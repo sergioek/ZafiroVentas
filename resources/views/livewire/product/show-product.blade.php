@@ -1,5 +1,5 @@
 <div>
-    
+    <x-alerts/>
     <x-button-create href="{{route('products.create')}}"/>
     <x-search-component/>  
 
