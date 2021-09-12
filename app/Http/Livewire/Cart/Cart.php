@@ -27,6 +27,7 @@ class Cart extends Component
 
         $cart->update([
             'amount'=>$this->amount,
+            'subtotal'=>$this->amount*$cart->product->price,
         ]);
 
     }
@@ -36,17 +37,22 @@ class Cart extends Component
             'discount' => 'required|numeric|',
             'interest' => 'required|numeric|',
         ]);
+    }
 
-
-
+    public function Cancel(){
+        $user=auth()->user()->id;
+        $cart=CartProduct::where('user_id',$user)->delete();
+        return view('carts.cart');
 
     }
 
+    
+
     public function render()
     {
-        
         $carts=CartProduct::all()->where('user_id',auth()->user()->id);
-        return view('livewire.cart.cart',compact('carts'));
+        $total=CartProduct::all()->where('user_id',auth()->user()->id)->sum('subtotal');
+        return view('livewire.cart.cart',compact('carts','total'));
         
     }
 }

@@ -32,7 +32,7 @@ class ShowProduct extends Component
 
     }
 
-    public function addCart($id){
+    public function addCart($id,$price){
         $validatedData = $this->validate([
             'amount' => 'required|numeric|',
         ]);
@@ -47,6 +47,7 @@ class ShowProduct extends Component
                         'amount'=>$this->amount,
                         'product_id'=>$id,
                         'user_id'=>$user,
+                        'subtotal'=>$price*$this->amount,
                     ]);
                 }else{
                     $flight->update([
