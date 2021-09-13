@@ -32,11 +32,21 @@ class Cart extends Component
 
     }
 
-    public function Percentage($cart){
-        $validatedData = $this->validate([
-            'discount' => 'required|numeric|',
-            'interest' => 'required|numeric|',
+    public function Percentage(){
+    
+        $carts=CartProduct::where('user_id',auth()->user()->id)->sum('subtotal');
+        $value_increment=$carts*$this->interest/100;
+        $value_decrement=$carts*$this->discount/100;
+
+        $carts=CartProduct::where('user_id',auth()->user()->id)->increment('subtotal',$value_increment);
+        $carts=CartProduct::where('user_id',auth()->user()->id)->decrement('subtotal',$value_decrement);
+
+        $cartsall=CartProduct::where('user_id',auth()->user()->id);
+        $cartsall->update([
+            'discount'=>$this->discount,
+            'intereset'=>$this->interest,
         ]);
+        
     }
 
     public function Cancel(){
@@ -51,8 +61,10 @@ class Cart extends Component
     public function render()
     {
         $carts=CartProduct::all()->where('user_id',auth()->user()->id);
-        $total=CartProduct::all()->where('user_id',auth()->user()->id)->sum('subtotal');
+        $total=$carts->sum('subtotal');
+
         return view('livewire.cart.cart',compact('carts','total'));
-        
-    }
+    
+}
+
 }

@@ -11,7 +11,8 @@
               <th scope="col">Codigo</th>
               <th scope="col">Cantidad</th>
               <th scope="col">Precio</th>
-              <th scope="col">Subtotal</th>
+              <th scope="col">Interes</th>
+              <th scope="col">Descuento</th>
               <th scope="col">Agregar</th>
               <th scope="col"></th>
               <th scope="col"></th>
@@ -38,8 +39,11 @@
                     </td>
 
                     <td class="text-center">
-                        
-                        {{"$".number_format($cart->subtotal,2)}}
+                        {{number_format($cart->intereset,2)}}
+                    </td>
+
+                    <td class="text-center">
+                        {{number_format($cart->discount,2)}}
                     </td>
 
                     <td>
@@ -57,7 +61,6 @@
 
         
               @empty
-                 
                 <a href="{{route('products.index')}}">
                 
                     <div class="card bg-info">
@@ -76,10 +79,7 @@
     </table>
 </div>
 
+<x-porcentage/>  
 
-
-<x-porcentage/>
-
- 
 <x-sail-details total={{$total}}/>
 </div>

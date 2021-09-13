@@ -47,6 +47,8 @@ class ShowProduct extends Component
                         'amount'=>$this->amount,
                         'product_id'=>$id,
                         'user_id'=>$user,
+                        'discount'=>0,
+                        'intereset'=>0,
                         'subtotal'=>$price*$this->amount,
                     ]);
                 }else{
