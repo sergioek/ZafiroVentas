@@ -25,6 +25,10 @@ class CreateSalesTable extends Migration
             //Llave foranea
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+
+            //Llave foranea
+            $table->unsignedBigInteger('cuestomer_id');
+            $table->foreign('cuestomer_id')->references('id')->on('cuestomers');
         });
     }
 

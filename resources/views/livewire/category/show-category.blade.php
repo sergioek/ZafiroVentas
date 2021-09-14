@@ -1,7 +1,9 @@
 <div>
+
     <x-button-create href="{{route('categories.create')}}"/>
     <x-search-component/>  
-    <table class="table table-hover">
+
+    <table class="table  table-hover">
         <thead>
             
           <tr>
@@ -12,7 +14,7 @@
         <tbody>
             @forelse ($categories as $category)            
             <tr>
-                <div >
+                
                         <td>
                             <a href="{{route('products.show',$category->id)}}">{{$category->name}}</a>
                         </td>
@@ -21,7 +23,7 @@
                                 <img src="{{$category->image}}" alt="70" width="70">
                             </a>
                         </td> 
-                </div>
+                
 
                 <x-options-edit href="{{route('categories.edit',$category)}}"/>
                 <x-options-destoy action="{{route('categories.destroy',$category)}}"/>
@@ -33,7 +35,10 @@
             @endforelse 
         </tbody>
       </table>
+
         <div class="container offset-lg-9">
             {{$categories->links()}}
         </div>
+
+ 
 </div>

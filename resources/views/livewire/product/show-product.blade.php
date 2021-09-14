@@ -16,7 +16,7 @@
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" wire:model="filter" value="{{$category->id}}">
                     <label class="form-check-label" for="inlineCheckbox1">{{$category->name}}</label>
-            </div>
+                 </div>
             @empty
                     <p class=" text-danger">No se encontraron resultados en su busqueda</p>
             @endforelse

@@ -315,12 +315,28 @@ return [
         ],
 
         [
+            'text'    => 'Clientes',
+            'icon'    => 'far fa-address-card',
+            'submenu' => [
+                [
+                    'text' => 'Ver Clientes',
+                    'url'  => 'cuestomers',
+                ],
+
+                [
+                    'text' => 'Agregar cliente',
+                    'url'  => 'cuestomers/create',
+                ],
+            ],
+        ],
+
+        [
             'text'    => 'Ventas',
             'icon'    => 'fas fa-cart-arrow-down',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Carrito',
+                    'url'  => 'carts/',
                 ],
             ],
         ],
