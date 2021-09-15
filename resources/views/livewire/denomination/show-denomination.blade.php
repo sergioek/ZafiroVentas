@@ -3,7 +3,7 @@
     <x-search-component/>  
 
     <table class="table table-hover">
-        <thead>
+        <thead class="table-dark table-bordered">
             
           <tr>
             <th scope="col">Tipo</th>

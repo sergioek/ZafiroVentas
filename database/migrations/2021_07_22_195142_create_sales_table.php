@@ -20,8 +20,8 @@ class CreateSalesTable extends Migration
             $table->decimal('cash',10,2);
             $table->decimal('change',10,2);
             $table->enum('status',['PAID','PENDING','CANCELLED'])->default('PAID');
+            $table->text('notes');
             $table->timestamps();
-
             //Llave foranea
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

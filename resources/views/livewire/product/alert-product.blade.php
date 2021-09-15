@@ -14,9 +14,9 @@
     </div>
 </div>          
             
-<div class="table table-hover table-responsive">
-    <table >
-        <thead>
+<div >
+    <table class="table table-hover" >
+        <thead class="table-dark table-bordered">
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Imagen</th>

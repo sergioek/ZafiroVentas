@@ -22,9 +22,9 @@
             @endforelse
     </div>
 
-<div class="table table-hover table-responsive">
-    <table >
-        <thead>
+<div >
+    <table class="table table-hover">
+        <thead class="table-dark table-bordered">
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Imagen</th>
@@ -34,6 +34,7 @@
             <th scope="col">Costo</th>
             <th scope="col">Precio</th>
             <th scope="col">Cantidad</th>
+            <th scope="col"></th>
 
           </tr>
         </thead>

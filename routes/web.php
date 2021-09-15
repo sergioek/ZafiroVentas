@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CuestomerController;
 use App\Http\Controllers\DenominationController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Categories;
 use App\Http\Livewire\ShowCategory;
@@ -46,3 +47,5 @@ Route::get('/alert/products',[ProductController::class,'alert'])->name('products
 Route::resource('denominations', DenominationController::class)->middleware(['auth:sanctum', 'verified']);
 
 Route::resource('carts', CartController::class)->middleware(['auth:sanctum', 'verified']);
+
+Route::resource('sales', SaleController::class)->middleware(['auth:sanctum', 'verified']);

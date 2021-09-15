@@ -82,4 +82,5 @@
 <x-porcentage/>  
 
 <x-sail-details total={{$total}}/>
+
 </div>
