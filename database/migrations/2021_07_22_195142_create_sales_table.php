@@ -15,10 +15,9 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->decimal('total',10,2);
             $table->integer('items');
             $table->decimal('cash',10,2);
-            $table->decimal('change',10,2);
+            $table->decimal('debt',10,2);
             $table->enum('status',['PAID','PENDING','CANCELLED'])->default('PAID');
             $table->text('notes');
             $table->timestamps();
