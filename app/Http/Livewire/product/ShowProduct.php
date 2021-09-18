@@ -54,6 +54,7 @@ class ShowProduct extends Component
                 }else{
                     $flight->update([
                         'amount'=>$flight->amount+$this->amount,
+                        'subtotal'=>$price*($flight->amount+$this->amount),
                     ]);
                 }
               

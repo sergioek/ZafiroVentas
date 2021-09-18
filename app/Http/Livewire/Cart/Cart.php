@@ -6,6 +6,7 @@ use App\Models\Cart as ModelsCart;
 use App\Models\CartProduct;
 use App\Models\Product;
 use App\Models\User;
+use App\View\Components\porcentage;
 use Livewire\Component;
 
 
@@ -35,16 +36,29 @@ class Cart extends Component
     public function Percentage(){
     
         $carts=CartProduct::where('user_id',auth()->user()->id)->sum('subtotal');
-        $value_increment=$carts*$this->interest/100;
-        $value_decrement=$carts*$this->discount/100;
+       
+        if(empty($this->interest)){
+           $int=0;
+        }else{
+             $int=$this->interest;
+        } 
+        if(empty($this->discount)){
+            $des=0;
+         }else{
+             $des=$this->discount;
+         } 
 
+        $value_decrement=$carts*$des/100;
+        $value_increment=$carts*$int/100;
+       
         $carts=CartProduct::where('user_id',auth()->user()->id)->increment('subtotal',$value_increment);
+  
         $carts=CartProduct::where('user_id',auth()->user()->id)->decrement('subtotal',$value_decrement);
-
+      
         $cartsall=CartProduct::where('user_id',auth()->user()->id);
         $cartsall->update([
-            'discount'=>$this->discount,
-            'intereset'=>$this->interest,
+            'discount'=>$des,
+            'intereset'=>$int,
         ]);
         
     }
