@@ -18,7 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->string('name',255);
             $table->text('address',500)->nullable();
             $table->string('phone',10)->nullable();
-            $table->string('CUIT_id',45)->nullable();
+            $table->string('CUIT',45)->nullable();
             $table->timestamps();
         });
     }

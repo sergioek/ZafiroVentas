@@ -49,3 +49,4 @@ Route::resource('denominations', DenominationController::class)->middleware(['au
 Route::resource('carts', CartController::class)->middleware(['auth:sanctum', 'verified']);
 
 Route::resource('sales', SaleController::class)->middleware(['auth:sanctum', 'verified']);
+

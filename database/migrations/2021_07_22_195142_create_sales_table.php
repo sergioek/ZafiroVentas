@@ -18,8 +18,8 @@ class CreateSalesTable extends Migration
             $table->integer('items');
             $table->decimal('cash',10,2);
             $table->decimal('debt',10,2);
-            $table->enum('status',['PAID','PENDING','CANCELLED'])->default('PAID');
-            $table->text('notes');
+            $table->enum('status',['PAID','PENDING','CANCELLED']);
+            $table->text('notes')->nullable();
             $table->timestamps();
             //Llave foranea
             $table->unsignedBigInteger('user_id');
@@ -40,4 +40,5 @@ class CreateSalesTable extends Migration
     {
         Schema::dropIfExists('sales');
     }
+
 }
