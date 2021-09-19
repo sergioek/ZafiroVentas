@@ -100,9 +100,9 @@
  <div class="input-group mb-3 col-lg-9">
   <span class="input-group-text text-bold bg-danger">CAMBIO $:</span>
   <input type="number" class="form-control" step="0.1"  value="{{floatval($paid)-$total}}" disabled >
- <input type="hidden" name="debt" value="{{$total-floatval($paid)}}">
 </div>   
 @endif
+<input type="hidden" name="debt" value="{{$total-floatval($paid)}}">
 
 @if ($paid<$total)
 <div class="input-group mb-3 col-lg-9">

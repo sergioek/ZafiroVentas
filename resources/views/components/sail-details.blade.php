@@ -6,7 +6,7 @@
           <h2 class="fs-2 text-center">{{"$".number_format($total,2)}}</h2>
           <button class="btn btn-outline-danger col-lg-4 mt-3" wire:click="Cancel()">Cancelar</button>
           <br>
-          <a href="{{route('sales.edit',$total)}}">
+          <a href="{{route('sales.index')}}">
             <button class="btn btn-primary col-lg-4 mt-3">Comprar Carrito</button>
           </a>
         </div>
