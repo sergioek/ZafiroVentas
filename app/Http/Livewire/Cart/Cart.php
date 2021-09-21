@@ -12,6 +12,8 @@ use Livewire\Component;
 
 class Cart extends Component
 {
+
+ 
     public $amount;
     public $discount;
     public $interest;
@@ -35,31 +37,35 @@ class Cart extends Component
 
     public function Percentage(){
     
-        $carts=CartProduct::where('user_id',auth()->user()->id)->sum('subtotal');
-       
+        $cart=CartProduct::where('user_id',auth()->user()->id)->sum('subtotal');
+     
+       $count=CartProduct::where('user_id',auth()->user()->id)->count();
         if(empty($this->interest)){
            $int=0;
         }else{
-             $int=$this->interest;
+             $int=$this->interest/$count;
         } 
         if(empty($this->discount)){
             $des=0;
          }else{
-             $des=$this->discount;
+             $des=$this->discount/$count;
          } 
 
-        $value_decrement=$carts*$des/100;
-        $value_increment=$carts*$int/100;
+        $value_decrement=$cart*$des/100;
+        $value_increment=$cart*$int/100;
        
+    
         $carts=CartProduct::where('user_id',auth()->user()->id)->increment('subtotal',$value_increment);
   
-        $carts=CartProduct::where('user_id',auth()->user()->id)->decrement('subtotal',$value_decrement);
+       $carts=CartProduct::where('user_id',auth()->user()->id)->decrement('subtotal',$value_decrement);
       
         $cartsall=CartProduct::where('user_id',auth()->user()->id);
         $cartsall->update([
             'discount'=>$des,
             'intereset'=>$int,
         ]);
+
+    
         
     }
 

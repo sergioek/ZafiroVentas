@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class SaleController extends Controller
 {
-    public function index(){
+    public function cart(){
         $subtotal=CartProduct::all()->where('user_id',auth()->user()->id);
         $total=$subtotal->sum('subtotal');
         if($total==0){
@@ -21,6 +21,21 @@ class SaleController extends Controller
         }
         
     }
+
+    public function index(){
+        return view('sales.sale-show');
+    }
+
+    public function show(){
+
+    }
+
+    public function edit(){
+
+    }
+
+
+
 
     public function store(SaleValidate $request){
         $sale=Sale::create([
@@ -45,15 +60,17 @@ class SaleController extends Controller
                 'stock'=>$product->product->stock-$product->amount,
             ]); 
 
-           
-           
+            $product->delete();
+                
         }
+
+
+
 
         
 
     }
 
- 
 }
 
     

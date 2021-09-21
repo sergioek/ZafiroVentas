@@ -59,6 +59,8 @@
                     </td>
               </tr>
 
+     
+           
         
               @empty
                 <a href="{{route('products.index')}}">
@@ -82,5 +84,6 @@
 <x-porcentage/>  
 
 <x-sail-details total={{$total}}/>
+
 
 </div>

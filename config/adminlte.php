@@ -338,6 +338,11 @@ return [
                     'text' => 'Carrito',
                     'url'  => 'carts/',
                 ],
+
+                [
+                    'text' => 'Métodos de Pago',
+                    'url'  => 'sales/',
+                ],
             ],
         ],
 
