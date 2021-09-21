@@ -27,7 +27,7 @@ class SaleShow extends Component
 
     public function render()
     {
-        $sales=Sale::where('updated_atclas','like','%'.$this->search.'%')->orderby('updated_at','DESC')->Paginate(3);
+        $sales=Sale::where('date','like','%'.$this->search.'%')->orderby('date','DESC')->Paginate(10);
 
         //$products=Product::where('name','like','%'.$this->search.'%');
         

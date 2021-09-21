@@ -7,6 +7,7 @@ use App\Models\CartProduct;
 use App\Models\Product;
 use App\Models\Sale;
 use App\Models\SaleDetails;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -24,6 +25,7 @@ class SaleController extends Controller
 
     public function index(){
         return view('sales.sale-show');
+        
     }
 
     public function show(){
@@ -35,11 +37,11 @@ class SaleController extends Controller
     }
 
 
-
-
     public function store(SaleValidate $request){
+        $date=Carbon::now()->toDateString();
         $sale=Sale::create([
             'items'=>$request->items,
+            'date'=>$date,
             'cash'=>$request->cash,
             'debt'=>$request->debt,
             'status'=>$request->status,

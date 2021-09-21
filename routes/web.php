@@ -6,6 +6,7 @@ use App\Http\Controllers\CuestomerController;
 use App\Http\Controllers\DenominationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\SaleDetailsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Categories;
 use App\Http\Livewire\ShowCategory;
@@ -51,6 +52,9 @@ Route::resource('carts', CartController::class)->middleware(['auth:sanctum', 've
 Route::resource('sales', SaleController::class)->middleware(['auth:sanctum', 'verified']);
 
 Route::get('sale', [SaleController::class,'cart'])->middleware(['auth:sanctum', 'verified'])->name('sales.cart');
+
+Route::resource('detailsale', SaleDetailsController::class)->middleware(['auth:sanctum', 'verified']);
+
 
 
 

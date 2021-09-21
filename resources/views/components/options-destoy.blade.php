@@ -1,5 +1,5 @@
 <div>
-    <td class="collapse" id="Options">
+    <td class="collapse" id="Options" title="Eliminar">
         <form action="{{$action}}" method="post">
             @method('delete')
             @csrf

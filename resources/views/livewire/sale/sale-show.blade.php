@@ -13,23 +13,39 @@
                 <th scope="col">Pagado</th>
                 <th scope="col">Adeuda</th>
                 <th scope="col">Vendedor</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
                 @forelse ($sales as $sale)            
+               
                 <tr>
                   
-                            <td>
+                            <td> 
+                                <a href="{{route('detailsale.show',$sale->id)}}">
                                 {{$sale->id}}
+                                </a> 
                             </td>
                             <td>
-                                {{$sale->updated_at}}
+                                {{$sale->date}}
                             </td> 
                             <td>
                                 {{$sale->cuestomer->name . " ". $sale->cuestomer->lastname}}
                             </td> 
                             <td>
-                                {{$sale->status}}
+                                @if ($sale->status=='PAID')
+                                    {{'PAGADO'}}
+                                @endif
+
+                                @if ($sale->status=='PENDING')
+                                    {{'PENDIENTE'}}
+                                @endif
+
+                                @if ($sale->status=='CANCELED')
+                                    {{'CANCELADO'}}
+                                @endif
+                                
                             </td> 
                             <td>
                                 {{$sale->items}}
@@ -46,11 +62,14 @@
                             <td>
                                 {{$sale->user->name}}
                             </td> 
-                
+                      
+                    <td class="collapse" id="Options" title="Ver detalle">
+                        <a href="" ><button class="btn btn-success"><i class="far fa-file-alt"></i></button></a>
+                    </td>
                     <x-options-edit href="{{route('sales.edit',$sale)}}"/>
                    
                 </tr>
-                    
+                     
                     @empty
                         <p class=" text-danger">No se encontraron resultados en su busqueda</p>
                 @endforelse 
