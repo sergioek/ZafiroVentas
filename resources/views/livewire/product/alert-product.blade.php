@@ -14,7 +14,7 @@
     </div>
 </div>          
             
-<div >
+<div class="table-responsive">
     <table class="table table-hover" >
         <thead class="table-dark ">
           <tr>

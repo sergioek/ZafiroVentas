@@ -2,8 +2,9 @@
 <x-alerts/>
 <x-button-create href="{{route('products.index')}}"/>
 <br>
-<div class="table table-hover table-responsive">
-    <table class="col-lg-12">
+
+<div class="table-responsive">
+    <table class="table table-hover col-lg-12">
         <thead class="table-dark">
             
             <tr>

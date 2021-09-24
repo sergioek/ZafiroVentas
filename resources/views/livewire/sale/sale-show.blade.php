@@ -2,8 +2,8 @@
     <x-button-create href="{{route('carts.index')}}"/>
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar una venta por fecha'}}"/>
 
-    <div class="row mt-3 mb-3">
-        <div class="col-1">
+    <div class="row">
+        <div class="col-2">
             <span class="text-bold">FILTRO:</span>
         </div>
         <div class="col-2">
@@ -26,9 +26,9 @@
             <label class="form-check-label" for="inlineCheckbox1">CANCELADO</label>
         </div>
 
-    </div>
+    </div >
     
-
+<div class="table-responsive">
         <table class="table table-hover">
             <thead class="table-dark">
               <tr>
@@ -104,7 +104,7 @@
                 @endforelse 
             </tbody>
           </table> 
-       
+</div>
 
 <div class="container offset-lg-9">
     {{$sales->links()}}

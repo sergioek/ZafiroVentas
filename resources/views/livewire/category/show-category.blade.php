@@ -2,7 +2,7 @@
 
     <x-button-create href="{{route('categories.create')}}"/>
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar el nombre de una categoria'}}"/>  
-
+<div class="table-responsive ">
     <table class="table  table-hover">
         <thead class="table-dark table-bordered">
             
@@ -35,7 +35,7 @@
             @endforelse 
         </tbody>
       </table>
-
+</div>
         <div class="container offset-lg-9">
             {{$categories->links()}}
         </div>

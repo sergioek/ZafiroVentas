@@ -1,7 +1,7 @@
 <div>
     <x-button-create href="{{route('denominations.create')}}"/>
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar una denominacion'}}"/>  
-
+<div class="table-responsive">
     <table class="table table-hover">
         <thead class="table-dark">
             
@@ -31,6 +31,7 @@
             @endforelse 
         </tbody>
       </table>
+  </div>
         <div class="container offset-lg-9">
             {{$denominations->links()}}
         </div>
