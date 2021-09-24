@@ -1,7 +1,7 @@
 <div>
     <x-alerts/>
     <x-button-create href="{{route('products.create')}}"/>
-    <x-search-component/>  
+    <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar el nombre de un producto'}}"/>  
 
     <div class="container-row">
         <strong>Filtro de productos:</strong>

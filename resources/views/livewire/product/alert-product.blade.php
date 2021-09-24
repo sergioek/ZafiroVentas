@@ -1,6 +1,6 @@
 <div>
     <x-button-create href="{{route('products.create')}}"/>
-    <x-search-component/>  
+    <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar un producto por nombre'}}"/>  
     <div class="container-row mt-3">
         <strong>Filtro de productos:</strong>
     <div class="form-check form-check-inline">
@@ -16,7 +16,7 @@
             
 <div >
     <table class="table table-hover" >
-        <thead class="table-dark table-bordered">
+        <thead class="table-dark ">
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Imagen</th>

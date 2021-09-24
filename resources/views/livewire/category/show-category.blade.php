@@ -1,7 +1,7 @@
 <div>
 
     <x-button-create href="{{route('categories.create')}}"/>
-    <x-search-component/>  
+    <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar el nombre de una categoria'}}"/>  
 
     <table class="table  table-hover">
         <thead class="table-dark table-bordered">

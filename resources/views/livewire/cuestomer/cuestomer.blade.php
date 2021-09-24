@@ -1,6 +1,6 @@
 <div>   
     <x-button-create href="{{route('cuestomers.create')}}"/>
-    <x-search-component/> 
+    <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar el nombre de un cliente'}}"/> 
    
         <table class="table table-hover">
             <thead class="table-dark">

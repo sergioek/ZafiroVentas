@@ -6,13 +6,15 @@ use Illuminate\View\Component;
 
 class SearchComponent extends Component
 {
+    public $placeholder;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($placeholder)
     {
+       $this->placeholder= $placeholder;
         //
     }
 

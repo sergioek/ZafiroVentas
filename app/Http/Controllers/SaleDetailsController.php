@@ -15,4 +15,8 @@ class SaleDetailsController extends Controller
         return view('sales.sale-details',compact('sales','company'));
         
     }
+
+    public function index(){
+        return redirect()->route('sales.index');
+    }
 }

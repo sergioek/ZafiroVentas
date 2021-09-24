@@ -1,6 +1,6 @@
 <div>
     <x-button-create href="{{route('denominations.create')}}"/>
-    <x-search-component/>  
+    <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar una denominacion'}}"/>  
 
     <table class="table table-hover">
         <thead class="table-dark">

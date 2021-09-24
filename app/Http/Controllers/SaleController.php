@@ -28,11 +28,30 @@ class SaleController extends Controller
         
     }
 
-    public function show(){
+
+    public function edit($id){
+        $sale=Sale::find($id);
+        return view('sales.sale-edit',compact('sale'));
 
     }
 
-    public function edit(){
+    public function update(Request $request, Sale $sale){
+        $request->validate([
+            'cash'=>'required|numeric|',
+        ]);
+
+        if($sale->debt-$request->cash==0){
+            $status='PAID';
+        }else{
+            $status='PENDING';
+        }
+        $sale->update([
+            'cash'=>$sale->cash+$request->cash,
+            'debt'=>$sale->debt-$request->cash,
+            'status'=>$status,
+        ]);
+
+        return redirect()->route('sales.index')->with('success','Se actualizo una venta.');
 
     }
 
@@ -63,6 +82,8 @@ class SaleController extends Controller
             ]); 
 
             $product->delete();
+
+            return redirect()->route('detailsale.show',$sale->id)->with('success','Se realizo una nueva venta');
                 
         }
 

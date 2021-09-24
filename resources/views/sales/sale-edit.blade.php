@@ -1,15 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Ventas realizadas')
+@section('title', 'Actualizar Venta')
 
 @section('content_header')
-    <h1>Ventas realizadas</h1>
+    <h1>Actualizar venta realizada</h1>
 @stop
 
 @section('content')
-    <p>Ver las ventas realizadas y sus detalles.</p>
+    <p>Actualizar el pago de la venta realizada.</p>
     <x-alerts/>
-    @livewire('sale.sale-show')
+    @include('sales.form.form-edit-sale')
+
    
 @stop
 

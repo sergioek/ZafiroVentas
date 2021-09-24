@@ -90,7 +90,8 @@
 <script>
     function imprimir() {
         window.print();
+        
     }
     </script>
-<button class="offset-lg-11 btn btn-primary" onclick="imprimir()">Imprimir</button>
+<button id="button" class="offset-lg-11 btn btn-primary" onclick="imprimir()">Imprimir</button>
 </div>

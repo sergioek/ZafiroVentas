@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Sale;
 
+use App\Models\Cuestomer;
 use App\Models\Sale;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -10,7 +11,8 @@ use Livewire\WithPagination;
 class SaleShow extends Component
 {
     public $search;
-
+    public $status;
+    
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
@@ -20,17 +22,21 @@ class SaleShow extends Component
     }
 
     public function mount(){
-        $sales=Sale::all();
-        return view('livewire.sale.sale-show',compact('sales'));
+        $this->status="ALL";
 
     }
+    
 
+   
     public function render()
     {
-        $sales=Sale::where('date','like','%'.$this->search.'%')->orderby('date','DESC')->Paginate(10);
-
-        //$products=Product::where('name','like','%'.$this->search.'%');
         
+        if($this->status=="ALL"){
+            $sales=Sale::where('date','like','%'.$this->search.'%')->orderby('date','DESC')->Paginate(10);
+        }else{
+            $sales=Sale::where('date','like','%'.$this->search.'%')->where('status',$this->status)->orderby('date','DESC')->Paginate(10);
+        }
+       
         return view('livewire.sale.sale-show',compact('sales'));
     }
 }

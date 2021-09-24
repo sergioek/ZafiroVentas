@@ -340,7 +340,7 @@ return [
                 ],
 
                 [
-                    'text' => 'Métodos de Pago',
+                    'text' => 'Ventas realizadas',
                     'url'  => 'sales/',
                 ],
             ],
