@@ -53,7 +53,13 @@ Route::resource('sales', SaleController::class)->middleware(['auth:sanctum', 've
 
 Route::get('sale', [SaleController::class,'cart'])->middleware(['auth:sanctum', 'verified'])->name('sales.cart');
 
+
+Route::post('sale/{sale}', [SaleController::class,'cancel'])->middleware(['auth:sanctum', 'verified'])->name('sales.cancel');
+
+
 Route::resource('detailsale', SaleDetailsController::class)->middleware(['auth:sanctum', 'verified']);
+
+
 
 
 

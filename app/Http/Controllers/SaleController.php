@@ -23,6 +23,26 @@ class SaleController extends Controller
         
     }
 
+    public function cancel(Sale $sale)
+    {
+        $sale->update([
+            'status'=>'CANCELLED',
+        ]);
+
+        $details=SaleDetails::all()->where('sale_id',$sale->id);
+        foreach ($details as $detail) {
+            $product=Product::find($detail->product_id);
+            $product->update([
+                'stock'=>$product->stock+$detail->quantity,
+            ]);
+        }
+
+        return redirect()->route('sales.index')->with('success','Se cancelo una venta y se recompuso su stock');
+
+    }
+
+
+
     public function index(){
         return view('sales.sale-show');
         
@@ -83,12 +103,10 @@ class SaleController extends Controller
 
             $product->delete();
 
-            return redirect()->route('detailsale.show',$sale->id)->with('success','Se realizo una nueva venta');
                 
         }
-
-
-
+        
+        return redirect()->route('detailsale.show',$sale->id)->with('success','Se realizo una nueva venta');
 
         
 

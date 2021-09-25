@@ -33,16 +33,17 @@
     </thead>
 
     <tbody>
+    
        <tr>
-           @foreach ($sales as $sale)
-              <td class="text-center">{{$sale->sale_id}}</td> 
-              <td class="text-center">{{$sale->sale->date}}</td> 
-              <td class="text-center">{{$sale->sale->cuestomer->name . " ". $sale->sale->cuestomer->lastname}}</td>
-              <td class="text-center">{{$sale->sale->cuestomer->dni}}</td> 
-              <td class="text-center">{{$sale->sale->status}}</td> 
+        
+              <td class="text-center">{{$sale->id}}</td> 
+              <td class="text-center">{{$sale->date}}</td> 
+              <td class="text-center">{{$sale->cuestomer->name . " ". $sale->cuestomer->lastname}}</td>
+              <td class="text-center">{{$sale->cuestomer->dni}}</td> 
+              <td class="text-center">{{$sale->status}}</td> 
 
-           @endforeach
        </tr>
+    
     </tbody>
 
 </table>
@@ -67,24 +68,26 @@
     </thead>
 
     <tbody>
-       <tr>
-           @foreach ($sales as $sale)
-              <td>{{$sale->product->brcode}}</td> 
-              <td>{{$sale->product->name}}</td> 
-              <td>{{"$".$sale->price}}</td>
-              <td>{{$sale->quantity}}</td>
-              <td>{{"$".$sale->quantity*$sale->price}}</td>
-           @endforeach
-       </tr>
+        @foreach ($details as $detail)
+            <tr>
+        
+            <td>{{$detail->product->brcode}}</td> 
+            <td>{{$detail->product->name}}</td> 
+            <td>{{"$".$detail->price}}</td>
+            <td>{{$detail->quantity}}</td>
+            <td>{{"$".$detail->quantity*$detail->price}}</td>
+    
+            </tr> 
+       @endforeach
     </tbody>
 
 </table>
 
 <div class="container text-right">
-    @foreach ($sales as $sale)
-         <h4 class="text-success">PAGADO: {{"$". $sale->sale->cash}}</h4>
-         <h5 class="text-danger">ADEUDA: {{"$". $sale->sale->debt}}</h5>
-    @endforeach
+
+         <h4 class="text-success">PAGADO: {{"$". $sale->cash}}</h4>
+         <h5 class="text-danger">ADEUDA: {{"$". $sale->debt}}</h5>
+
    
 </div>
 <script>

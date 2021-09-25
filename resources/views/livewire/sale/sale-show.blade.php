@@ -69,7 +69,7 @@
                                     {{'PENDIENTE'}}
                                 @endif
 
-                                @if ($sale->status=='CANCELED')
+                                @if ($sale->status=='CANCELLED')
                                     {{'CANCELADO'}}
                                 @endif
                                 
@@ -93,8 +93,26 @@
                     <td class="collapse" id="Options" title="Ver detalle">
                         <a href="{{route('detailsale.show',$sale->id)}}" ><button class="btn btn-success"><i class="far fa-file-alt"></i></button></a>
                     </td>
+
                     @if ($sale->debt>0)
-                        <x-options-edit href="{{route('sales.edit',$sale->id)}}"/>
+                        @if ($sale->status!='CANCELLED')
+                           <x-options-edit href="{{route('sales.edit',$sale->id)}}"/>   
+                        @endif
+                    @endif
+
+                    @if ($sale->status!='CANCELLED')
+                        <div>
+                        <td class="collapse" id="Options" title="Cancelar Venta">
+                            <form action="{{route('sales.cancel',$sale)}}" method="post">
+                                @method('POST')
+                                @csrf
+                                <a href="">
+                                <button class="btn btn-danger"><i class="far fa-window-close"></i></button>
+                                </a>
+                            </form>
+                        </td>
+                    </div>
+                    
                     @endif
                    
                 </tr>

@@ -9,7 +9,7 @@
 @section('content')
     
     <x-alerts/>
-    @include('sales.ticket.ticket-sale',['sales'=>$sales,'company'=>$company])
+    @include('sales.ticket.ticket-sale',['sale'=>$sale,'company'=>$company])
    
 @stop
 
