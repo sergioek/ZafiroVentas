@@ -25,6 +25,21 @@
                   <br>
                 @enderror
 
+                <!--------------------------->
+                <label for="">Marca del producto</label>
+                <select name="mark_id" id="" class="form-control">
+                    @foreach ($marks as $mark)
+                      <option value="{{$mark->id}}">{{$mark->name}}</option>  
+                    @endforeach
+                    
+                </select>
+                @error('mark_id')
+                  <br>
+                      <small class="text-danger">*{{$message}}</small>
+                  <br>
+                @enderror
+                <!---------------------------->
+
                 <label for="">Código</label>
                 <input type="text" class="form-control" id=""placeholder="Código del producto" name="brcode" value="{{$product->brcode}}">
                 @error('brcode')
@@ -102,6 +117,6 @@
           @enderror
         </div>   
 
-              <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Actualizar</button>
-            </form>
-      </div>
+          <x-buttonupdate/>
+        </form>
+    </div>

@@ -20,7 +20,7 @@ class Cuestomer extends Component
     }
     public function render()
     {
-        $cuestomers=ModelsCuestomer::where('name','like','%'.$this->search.'%')->orderby('name','ASC')->Paginate(5);
+        $cuestomers=ModelsCuestomer::where('name','like','%'.$this->search.'%')->orderby('name','ASC')->Paginate(10);
         return view('livewire.cuestomer.cuestomer',compact('cuestomers'));
         
     }

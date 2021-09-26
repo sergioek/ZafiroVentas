@@ -269,12 +269,29 @@ return [
                     'text' => 'Nueva categoría',
                     'url'  => 'categories/create',
                 ],
-
-    
-                
-                
+  
             ],
         ],
+
+
+        [
+            'text'    => 'Marcas',
+            'icon'    => 'fab fa-markdown',
+            'submenu' => [
+                [
+                    'text' => 'Ver marcas',
+                    'url'  => 'marks',
+                ],
+
+                [
+                    'text' => 'Nueva marca',
+                    'url'  => 'marks/create',
+                ],
+  
+            ],
+        ],
+
+
 
         
         [

@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CuestomerController;
 use App\Http\Controllers\DenominationController;
+use App\Http\Controllers\MarkController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SaleDetailsController;
@@ -37,6 +38,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/user-profile', function (
 })->name('user.profile');
 
 Route::resource('categories', CategoryController::class)->middleware(['auth:sanctum', 'verified']);
+
+Route::resource('marks', MarkController::class)->middleware(['auth:sanctum', 'verified']);
 
 Route::resource('cuestomers', CuestomerController::class)->middleware(['auth:sanctum', 'verified']);
 

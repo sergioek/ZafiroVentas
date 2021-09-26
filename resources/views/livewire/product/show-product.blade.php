@@ -1,7 +1,7 @@
 <div>
     <x-alerts/>
     <x-button-create href="{{route('products.create')}}"/>
-    <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar el nombre de un producto'}}"/>  
+    <x-search-component placeholder="{{$placeholder='Ingrese el nombre del producto o su codigo'}}"/>  
 
     <div class="container-row">
         <strong>Filtro de productos:</strong>
@@ -27,6 +27,7 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">Nombre</th>
+            <th scope="col">Marca</th>
             <th scope="col">Imagen</th>
             <th scope="col">Código</th>
             <th scope="col">Talle</th>
@@ -35,13 +36,15 @@
             <th scope="col">Precio</th>
             <th scope="col">Cantidad</th>
             <th scope="col"></th>
-
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
             @forelse ($products as $product)            
             <tr>
                 <td>{{$product->name}}</td>
+                <td>{{$product->mark->name}}</td>
                 <td><img src="{{$product->image}}" alt="70" width="70"></td>
                 <td>{{$product->brcode}}</td>
                 <td>{{$product->waist->waist}}</td>

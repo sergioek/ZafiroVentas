@@ -26,6 +26,21 @@
                   <br>
                 @enderror
 
+                <!--------------------->
+                <label for="">Marca del producto</label>
+                <select name="mark_id" id="" class="form-control">
+                    @foreach ($marks as $mark)
+                      <option value="{{$mark->id}}">{{$mark->name}}</option>  
+                    @endforeach
+                    
+                </select>
+                @error('mark_id')
+                  <br>
+                      <small class="text-danger">*{{$message}}</small>
+                  <br>
+                @enderror
+                <!---------------------->
+
                 <label for="">Código</label>
                 <input type="text" class="form-control" id=""placeholder="Código del producto" required name="brcode" value="{{old('brcode')}}">
                 @error('brcode')
@@ -98,6 +113,6 @@
             <input type="file" class="form-control-file" id="" name="image" accept="image/jpeg, image/png">
         </div>   
 
-              <button type="submit" class="btn btn-info"><i class="far fa-save"> Guardar</i></button>
-            </form>
-      </div>
+            <x-buttonsave/>
+      </form>
+  </div>

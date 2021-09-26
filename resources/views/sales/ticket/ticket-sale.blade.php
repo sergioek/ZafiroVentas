@@ -59,6 +59,7 @@
     <thead class="table-primary">
         <tr>
           <th scope="col" class="text-dark">Codigo</th>
+          <th scope="col" class="text-dark">Marca</th>
           <th scope="col" class="text-dark">Nombre</th> 
           <th scope="col" class="text-dark">Precio</th> 
           <th scope="col" class="text-dark">Cantidad</th>  
@@ -72,6 +73,7 @@
             <tr>
         
             <td>{{$detail->product->brcode}}</td> 
+            <td>{{$detail->product->mark->name}}</td>
             <td>{{$detail->product->name}}</td> 
             <td>{{"$".$detail->price}}</td>
             <td>{{$detail->quantity}}</td>

@@ -4,11 +4,13 @@
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar el nombre de una categoria'}}"/>  
 <div class="table-responsive ">
     <table class="table  table-hover">
-        <thead class="table-dark table-bordered">
+        <thead class="table-dark ">
             
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Imagen</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>

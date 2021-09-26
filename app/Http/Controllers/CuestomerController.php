@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CuestomerUpdateValidate;
 use App\Http\Requests\CuestomerValidate;
 use App\Models\Cuestomer;
+use Exception;
 use Illuminate\Http\Request;
 
 class CuestomerController extends Controller
@@ -52,9 +53,14 @@ class CuestomerController extends Controller
     }
 
     public function destroy(Cuestomer $cuestomer){
-        $cuestomer->delete();
-        return redirect()->route('cuestomers.index')->with('success','Se elimino un cliente.');
-
+        
+        try {
+           $cuestomer->delete(); 
+           return redirect()->route('cuestomers.index')->with('success','Se elimino un cliente.');
+        }catch(Exception $e){
+            return redirect()->route('cuestomers.index')->with('alert','No se pudo eliminar un cliente porque ya esta asociado a una/s ventas.');
+        }
+        
     }
 
 

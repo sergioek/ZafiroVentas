@@ -9,6 +9,8 @@
             <th scope="col">Tipo</th>
             <th scope="col">Valor</th>
             <th scope="col">Imagen</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
 
           </tr>
         </thead>

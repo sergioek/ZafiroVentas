@@ -28,10 +28,14 @@ class CreateProductsTable extends Migration
             //Relacion uno a muchos
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
-            //Relacion uno a muchos
 
+            //Relacion uno a muchos
             $table->unsignedBigInteger('waist_id');
            $table->foreign('waist_id')->references('id')->on('waists');
+
+           //Relacion uno a muchos
+           $table->unsignedBigInteger('mark_id');
+           $table->foreign('mark_id')->references('id')->on('marks');
         });
     }
 

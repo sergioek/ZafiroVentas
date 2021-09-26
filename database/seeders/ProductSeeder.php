@@ -16,6 +16,7 @@ class ProductSeeder extends Seeder
     {
         Product::create([
             'name'=>'Jean Taverniti',
+            'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
             'brcode'=>'123456',
@@ -30,6 +31,7 @@ class ProductSeeder extends Seeder
 
         Product::create([
             'name'=>'Camisas Taverniti',
+            'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
             'brcode'=>'123456',
@@ -44,6 +46,7 @@ class ProductSeeder extends Seeder
 
         Product::create([
             'name'=>'Camisetas Taverniti',
+            'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
             'brcode'=>'123456',
@@ -59,6 +62,7 @@ class ProductSeeder extends Seeder
 
         Product::create([
             'name'=>'Shorts Taverniti',
+            'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
             'brcode'=>'123456',
@@ -73,6 +77,7 @@ class ProductSeeder extends Seeder
 
         Product::create([
             'name'=>'Perfumes natura',
+            'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
             'brcode'=>'123456',

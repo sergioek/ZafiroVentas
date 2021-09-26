@@ -25,6 +25,7 @@ class ProductValidate extends FormRequest
     {
         return [
             'name'=>'required|max:100',
+            'mark_id'=>'required|numeric',
             'category_id'=>'required|numeric',
             'brcode'=>'required|max:100',
             'cost'=>'required|numeric|min:1',

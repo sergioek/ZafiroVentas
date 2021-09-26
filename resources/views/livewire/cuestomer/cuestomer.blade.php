@@ -10,6 +10,8 @@
                 <th scope="col">DNI</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Email</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>

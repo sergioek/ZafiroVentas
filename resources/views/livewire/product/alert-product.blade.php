@@ -19,6 +19,7 @@
         <thead class="table-dark ">
           <tr>
             <th scope="col">Nombre</th>
+            <th scope="col">Marca</th>
             <th scope="col">Imagen</th>
             <th scope="col">Categoría</th>
             <th scope="col">Código</th>
@@ -27,13 +28,18 @@
             <th scope="col">Costo</th>
             <th scope="col">Precio</th>
             <th scope="col">Stock</th>
-
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
             @forelse ($products as $product)            
             <tr>
                 <td>{{$product->name}}</td>
+                <td>{{$product->mark->name}}</td>
                 <td><img src="{{$product->image}}" alt="70" width="70"></td>
                 <td>{{$product->category->name}}</td>
                 <td>{{$product->brcode}}</td>

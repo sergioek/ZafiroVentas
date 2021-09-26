@@ -22,7 +22,7 @@ class ShowCategory extends Component
     public function render()
     {
         //Category
-       $categories=Category::where('name','like','%'.$this->search.'%')->orderby('name','ASC')->Paginate(5);
+       $categories=Category::where('name','like','%'.$this->search.'%')->orderby('name','ASC')->Paginate(10);
         return view('livewire.category.show-category',compact('categories'));
 
     }

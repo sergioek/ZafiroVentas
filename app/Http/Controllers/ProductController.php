@@ -6,7 +6,9 @@ use App\Http\Requests\ProductValidate;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Mark;
 use App\Models\Waist;
+use Exception;
 use Livewire\Livewire;
 
 class ProductController extends Controller
@@ -28,8 +30,9 @@ class ProductController extends Controller
 
     public function create(){
         $category=Category::all();
+        $marks=Mark::all();
         $waists=Waist::all();
-        return view('products.new-product',compact('category','waists'));
+        return view('products.new-product',compact('category','waists','marks'));
 
     }
 
@@ -56,6 +59,7 @@ class ProductController extends Controller
 
         $product=Product::create([
             'name'=>$request->name,
+            'mark_id'=>$request->mark_id,
             'category_id'=>$request->category_id,
             'brcode'=>$request->brcode,
             'cost'=>$request->cost,
@@ -74,9 +78,10 @@ class ProductController extends Controller
    
     public function edit($product){
         $category=Category::all();
+        $marks=Mark::all();
         $waists=Waist::all();
         $product=Product::find($product);
-        return view('products.edit-product',compact('category','product','waists'));
+        return view('products.edit-product',compact('category','product','waists','marks'));
     }
 
     public function update(ProductValidate $request, Product $product){
@@ -102,6 +107,7 @@ class ProductController extends Controller
 
         $product->update([
             'name'=>$request->name,
+            'mark_id'=>$request->mark_id,
             'category_id'=>$request->category_id,
             'brcode'=>$request->brcode,
             'cost'=>$request->cost,
@@ -119,9 +125,15 @@ class ProductController extends Controller
     }
 
     public function destroy(Product $product){
-        $product->delete();
-        $id="all";
-        return view('products.show-product',compact('id'))->with('success','Se elimino un producto.');
+        try {
+            $product->delete();
+            $id="all";
+            return redirect()->route('products.index')->with('success','Se elimino un producto.');
         ;
+        } catch (Exception $e) {
+           
+            return redirect()->route('products.index')->with('alert','No se pudo eliminar un producto porque esta asociado a una venta.');
+        }
+       
     }
 }

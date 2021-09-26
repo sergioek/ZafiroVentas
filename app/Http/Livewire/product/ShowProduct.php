@@ -74,10 +74,10 @@ class ShowProduct extends Component
     {
         if($this->filter=="all"){
 
-            $products=Product::where('name','like','%'.$this->search.'%')->orderby('name','ASC')->Paginate(3);
+            $products=Product::where('name','like','%'.$this->search.'%')->orWhere('brcode','like','%'.$this->search.'%')->orderby('name','ASC')->Paginate(10);
         
         }else{
-            $products=Product::where('category_id',$this->filter)->Paginate(3);
+            $products=Product::where('category_id',$this->filter)->Paginate(10);
         }
 
         return view('livewire.product.show-product',compact('products',$this->category));

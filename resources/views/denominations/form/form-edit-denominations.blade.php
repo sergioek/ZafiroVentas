@@ -37,7 +37,7 @@
           @enderror
           </div>   
           
-          <button type="submit" class="btn btn-success"><i class="far fa-save"> Actualizar</i></button>
+          <x-buttonupdate/>
           
         </form>
   </div>

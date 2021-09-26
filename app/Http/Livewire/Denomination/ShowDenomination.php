@@ -21,7 +21,7 @@ class ShowDenomination extends Component
     
     public function render()
     {
-        $denominations=Denominations::where('type','like','%'.$this->search.'%')->orderby('value','ASC')->Paginate(5);
+        $denominations=Denominations::where('type','like','%'.$this->search.'%')->orderby('value','ASC')->Paginate(10);
         return view('livewire.denomination.show-denomination',compact('denominations'));
     }
 }

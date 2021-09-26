@@ -9,6 +9,7 @@
             
             <tr>
               <th scope="col">Producto</th>
+              <th scope="col">Marca</th>
               <th scope="col">Codigo</th>
               <th scope="col">Cantidad</th>
               <th scope="col">Precio</th>
@@ -25,6 +26,10 @@
               <tr>
                     <td>
                         {{$cart->product->name}}
+                    </td>
+
+                    <td>
+                        {{$cart->product->mark->name}}
                     </td>
 
                     <td class="text-center">

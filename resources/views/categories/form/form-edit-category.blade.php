@@ -34,6 +34,6 @@
                 <label for="">Imagen</label>
                 <input type="file" class="form-control-file" id="" name="image" accept="image/jpeg, image/png" value="{{$category->image}}">
               </div>   
-              <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Actualizar</button>
+              <x-buttonupdate/>
             </form>
       </div>
