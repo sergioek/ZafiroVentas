@@ -1,32 +1,25 @@
 <div>
     <x-button-create href="{{route('carts.index')}}"/>
-    <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar una venta por fecha'}}"/>
+ 
 
-    <div class="row">
+    <div class="row mt-3 mb-3">
         <div class="col-2">
-            <span class="text-bold">FILTRO:</span>
+            <span class="text-bold">Filtros:</span>
         </div>
-        <div class="col-2">
-            <input class="form-check-input" type="radio" wire:model="status" value="ALL" checked>
-           <label class="form-check-label" for="inlineCheckbox1">TODO</label>
-       </div>
-
-        <div class="col-2">
-             <input class="form-check-input" type="radio" wire:model="status" value="PAID">
-            <label class="form-check-label" for="inlineCheckbox1">PAGADO</label>
+        <div class="col-lg-10">
+            <select name="" id="" class="form-control" wire:model="status">
+                <option selected value="ALL">TODOS</option>
+                <option  value="PAID">PAGADO</option>
+                <option  value="PENDING">PENDIENTE</option>
+                <option  value="CANCELLED">CANCELADO</option>
+                @foreach ($cuestomers as $cuestomer)
+                     <option value="{{$cuestomer->id}}" >{{$cuestomer->name . " " . $cuestomer->lastname}}</option>
+                @endforeach
+               
+            </select>
+            
         </div>
-
-        <div class="col-2">
-            <input class="form-check-input" type="radio" wire:model="status" value="PENDING">
-           <label class="form-check-label" for="inlineCheckbox1">PENDIENTE</label>
-       </div>
-
-       <div class="col-2">
-            <input class="form-check-input" type="radio" wire:model="status" value="CANCELLED">
-            <label class="form-check-label" for="inlineCheckbox1">CANCELADO</label>
-        </div>
-
-    </div >
+    </div>
     
 <div class="table-responsive">
         <table class="table table-hover">
