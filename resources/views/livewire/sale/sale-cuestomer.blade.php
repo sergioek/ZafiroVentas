@@ -1,19 +1,16 @@
 <div>
     <x-button-create href="{{route('carts.index')}}"/>
- 
+   
 
     <div class="row mt-3 mb-3">
-        <div class="col-3">
-            <span class="text-bold">Filtros por estado /vendedor:</span>
+        <div class="col-2">
+            <span class="text-bold">Filtros por cliente:</span>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-10">
             <select name="" id="" class="form-control" wire:model="status">
                 <option selected value="ALL">TODOS</option>
-                <option  value="PAID">PAGADO</option>
-                <option  value="PENDING">PENDIENTE</option>
-                <option  value="CANCELLED">CANCELADO</option>
-                @foreach ($users as $user)
-                     <option value="{{$user->id}}" >{{$user->name}}</option>
+                @foreach ($cuestomers as $cuestomer)
+                     <option value="{{$cuestomer->id}}" >{{$cuestomer->name . " ". $cuestomer->lastname}}</option>
                 @endforeach
                
             </select>
@@ -29,7 +26,7 @@
             </button>
         </a>
     </div>
-    
+
 <div class="table-responsive">
         <table class="table table-hover">
             <thead class="table-dark">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BoxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CuestomerController;
@@ -60,7 +61,14 @@ Route::get('sale', [SaleController::class,'cart'])->middleware(['auth:sanctum', 
 Route::post('sale/{sale}', [SaleController::class,'cancel'])->middleware(['auth:sanctum', 'verified'])->name('sales.cancel');
 
 
+Route::get('salescuestomer', [SaleController::class,'cuestomer'])->middleware(['auth:sanctum', 'verified'])->name('sales.cuestomer');
+
+
 Route::resource('detailsale', SaleDetailsController::class)->middleware(['auth:sanctum', 'verified']);
+
+
+Route::resource('boxes', BoxController::class)->middleware(['auth:sanctum', 'verified']);
+
 
 
 

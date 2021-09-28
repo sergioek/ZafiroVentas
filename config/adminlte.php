@@ -347,6 +347,22 @@ return [
             ],
         ],
 
+
+        
+        [
+            'text'    => 'Arqueos de Caja',
+            'icon'    => 'fas fa-cash-register',
+            'submenu' => [
+                [
+                    'text' => 'Caja',
+                    'url'  => 'boxes',
+                ],
+            ],
+        ],
+
+
+
+
         [
             'text'    => 'Ventas',
             'icon'    => 'fas fa-cart-arrow-down',
@@ -357,8 +373,13 @@ return [
                 ],
 
                 [
-                    'text' => 'Ventas realizadas',
+                    'text' => 'Ventas por estado/usuario',
                     'url'  => 'sales/',
+                ],
+
+                [
+                    'text' => 'Ventas por cliente',
+                    'url'  => 'salescuestomer',
                 ],
             ],
         ],
@@ -409,16 +430,6 @@ return [
         ],
 
 
-        [
-            'text'    => 'Arqueos',
-            'icon'    => 'fas fa-cash-register',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
 
         [
             'text'    => 'Reportes',

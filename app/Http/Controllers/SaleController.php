@@ -49,6 +49,13 @@ class SaleController extends Controller
     }
 
 
+    public  function cuestomer()
+    {
+        return view('sales.sale-cuestomer');
+
+    }
+
+
     public function edit($id){
         $sale=Sale::find($id);
         return view('sales.sale-edit',compact('sale'));
