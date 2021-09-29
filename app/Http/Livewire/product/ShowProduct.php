@@ -23,6 +23,10 @@ class ShowProduct extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function mount($idCategory){
 
@@ -66,10 +70,7 @@ class ShowProduct extends Component
 
     }
 
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
+
     public function render()
     {
         if($this->filter=="all"){

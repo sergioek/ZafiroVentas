@@ -51,11 +51,11 @@ Route::get('/alert/products',[ProductController::class,'alert'])->name('products
 
 Route::resource('denominations', DenominationController::class)->middleware(['auth:sanctum', 'verified']);
 
-Route::resource('carts', CartController::class)->middleware(['auth:sanctum', 'verified']);
+Route::resource('carts', CartController::class)->middleware(['auth:sanctum', 'verified','box']);
 
 Route::resource('sales', SaleController::class)->middleware(['auth:sanctum', 'verified']);
 
-Route::get('sale', [SaleController::class,'cart'])->middleware(['auth:sanctum', 'verified'])->name('sales.cart');
+Route::get('sale', [SaleController::class,'cart'])->middleware(['auth:sanctum', 'verified','sale_continue'])->name('sales.cart');
 
 
 Route::post('sale/{sale}', [SaleController::class,'cancel'])->middleware(['auth:sanctum', 'verified'])->name('sales.cancel');

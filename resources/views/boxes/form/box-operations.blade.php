@@ -3,7 +3,7 @@
     <div class="card-body">
 
         <h1 class="fs-1 text-primary">ESTADO DE CAJA</h1>
-        @if ($total==0)
+        @if ($state=='CLOSE')
             <h2 class="fs-2 text-center text-danger">CERRADO</h2>  
         @else
              <h2 class="fs-2 text-center text-success">ABIERTO</h2> 
@@ -18,7 +18,7 @@
             <div class="input-group mb-3 col-lg-9">
                 <span class="input-group-text text-bold bg-primary">OPERACION:</span>
                 <select name="status" id="" class="form-control">
-                    @if ($total==0)
+                    @if ($state=='CLOSE')
                         <option value="OPEN">ABRIR CAJA</option>
                     @else
                         <option value="EXTRACT">EXTRAER EFECTIVO</option>
@@ -29,7 +29,12 @@
 
             <div class="input-group mb-3 col-lg-9">
                 <span class="input-group-text text-bold bg-warning">MONTO$:</span>
-                <input type="number" class="form-control" name="amount" step="0.1" placeholder="Indique el monto. Si elije cerrar caja, este monto se autocompleta con{{' $'. number_format($total,2)}}">
+                <input type="number" class="form-control" name="amount" step="0.1" placeholder="Indique el monto. Si elije cerrar caja debe coincidir con el disponible.">
+                @error('amount')
+                    <br>
+                        <small class="text-danger">*{{$message}}</small>
+                    <br>
+                @enderror
             </div>
 
             <div class="input-group mb-3 col-lg-9">

@@ -13,13 +13,8 @@ use Illuminate\Http\Request;
 class SaleController extends Controller
 {
     public function cart(){
-        $subtotal=CartProduct::all()->where('user_id',auth()->user()->id);
-        $total=$subtotal->sum('subtotal');
-        if($total==0){
-           return redirect()->route('carts.index')->with('alert','No agrego productos al carrito, porque esta en $0.00. Para continuar la compra agregue productos.');
-        }else{
-            return view('sales.sale');
-        }
+     
+         return view('sales.sale');
         
     }
 
@@ -40,7 +35,6 @@ class SaleController extends Controller
         return redirect()->route('sales.index')->with('success','Se cancelo una venta y se recompuso su stock');
 
     }
-
 
 
     public function index(){

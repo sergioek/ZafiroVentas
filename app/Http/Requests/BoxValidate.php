@@ -26,8 +26,8 @@ class BoxValidate extends FormRequest
         return [
 
             'status'=>'required|string|max:20',
-            'amount'=>'required|numeric',
-            'notes'=>'required|string|max:200',
+            'amount'=>'required|numeric|min:0',
+            'notes'=>'string|max:200',
             'user_id'=>'required|numeric',
         ];
     }

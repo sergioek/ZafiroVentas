@@ -355,6 +355,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Caja',
+                    'url'  => 'boxes/create',
+                ],
+
+                [
+                    'text' => 'Movimientos',
                     'url'  => 'boxes',
                 ],
             ],
