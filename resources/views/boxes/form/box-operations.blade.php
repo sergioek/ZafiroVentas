@@ -2,26 +2,34 @@
     <div class="card-header text-center">Apertura, extracciones o cierre de caja.</div>
     <div class="card-body">
 
-        <h1 class="fs-1 text-primary">TOTAL DISPONIBLE</h1>
-        <h2 class="fs-2 text-center text-secondary">$1000.000</h2>
+        <h1 class="fs-1 text-primary">ESTADO DE CAJA</h1>
+        @if ($total==0)
+            <h2 class="fs-2 text-center text-danger">CERRADO</h2>  
+        @else
+             <h2 class="fs-2 text-center text-success">ABIERTO</h2> 
+        @endif
         
-
+        <h4 class="fs-2 text-center text-secondary">Disponible $:{{number_format($total,2)}}</h4>
+        
         <div class="container mt-3">
- 
-
+        <form action="{{route('boxes.store')}}" method="POST">
+            @method('POST')
+            @csrf
             <div class="input-group mb-3 col-lg-9">
                 <span class="input-group-text text-bold bg-primary">OPERACION:</span>
-                <select name="" id="" class="form-control">
-                    <option value="">ABRIR CAJA</option>
-                    <option value="">EXTRAER EFECTIVO</option>
-                    <option value="">CERRAR CAJA</option>
-
+                <select name="status" id="" class="form-control">
+                    @if ($total==0)
+                        <option value="OPEN">ABRIR CAJA</option>
+                    @else
+                        <option value="EXTRACT">EXTRAER EFECTIVO</option>
+                        <option value="CLOSE">CERRAR CAJA</option>
+                    @endif
                 </select>
             </div>
 
             <div class="input-group mb-3 col-lg-9">
                 <span class="input-group-text text-bold bg-warning">MONTO$:</span>
-                <input type="number" class="form-control" name="" step="0.1" placeholder="Indique el monto que ingresa o retira">
+                <input type="number" class="form-control" name="amount" step="0.1" placeholder="Indique el monto. Si elije cerrar caja, este monto se autocompleta con{{' $'. number_format($total,2)}}">
             </div>
 
             <div class="input-group mb-3 col-lg-9">
@@ -36,7 +44,7 @@
      
         </div>
       
-    
+        </form>
     
     </div>
 </div>

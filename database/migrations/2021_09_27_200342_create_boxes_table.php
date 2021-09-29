@@ -16,9 +16,9 @@ class CreateBoxesTable extends Migration
         Schema::create('boxes', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->string('status',100);
+            $table->enum('status',['OPEN','EXTRACT','CLOSE']);
             $table->decimal('amount',10,2);
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->timestamps();
 
             //llave foranea
