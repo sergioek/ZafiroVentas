@@ -7,6 +7,7 @@ use App\Http\Controllers\CuestomerController;
 use App\Http\Controllers\DenominationController;
 use App\Http\Controllers\MarkController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SaleDetailsController;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +69,8 @@ Route::resource('detailsale', SaleDetailsController::class)->middleware(['auth:s
 
 
 Route::resource('boxes', BoxController::class)->middleware(['auth:sanctum', 'verified']);
+
+Route::resource('reports', ReportController::class)->middleware(['auth:sanctum', 'verified']);
 
 
 
