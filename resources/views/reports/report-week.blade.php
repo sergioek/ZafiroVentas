@@ -7,12 +7,9 @@
 @stop
 
 @section('content')
-    <p>Ver los reportes de rendimiento de negocio.</p>
+    <p>Ver evolucion de ventas en la ultima semana.</p>
     <x-alerts/>
-
-   
-
-
+    @include('reports.week')
    
 @stop
 

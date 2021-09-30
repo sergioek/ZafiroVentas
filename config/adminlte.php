@@ -389,6 +389,24 @@ return [
             ],
         ],
 
+        
+        [
+            'text'    => 'Reportes',
+            'icon'    => 'fas fa-calendar-check',
+            'submenu' => [
+                [
+                    'text' => 'Esta semana',
+                    'url'  => 'reports',
+                ],
+
+                [
+                    'text' => 'Este mes',
+                    'url'  => 'reportsmonth',
+                ],
+            ],
+        ],
+
+
         [
             'text'    => 'Roles',
             'icon'    => 'fas fa-user-tag',
@@ -434,18 +452,6 @@ return [
             ],
         ],
 
-
-
-        [
-            'text'    => 'Reportes',
-            'icon'    => 'fas fa-calendar-check',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
 
         [
             'text'       => 'important',

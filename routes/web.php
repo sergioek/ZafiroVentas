@@ -72,6 +72,8 @@ Route::resource('boxes', BoxController::class)->middleware(['auth:sanctum', 'ver
 
 Route::resource('reports', ReportController::class)->middleware(['auth:sanctum', 'verified']);
 
+Route::get('reportsmonth', [ReportController::class,'month'])->middleware(['auth:sanctum', 'verified'])->name('reports.month');
+
 
 
 
