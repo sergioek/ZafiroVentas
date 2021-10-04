@@ -9,6 +9,17 @@ use Illuminate\Http\Request;
 
 class MarkController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:marks.create')->only('create'); 
+        $this->middleware('can:marks.store')->only('store');
+        $this->middleware('can:marks.edit')->only('edit'); 
+        $this->middleware('can:marks.update')->only('update');
+        $this->middleware('can:marks.destroy')->only('destroy');  
+
+
+    }
     public function index(){
         return view('marks.show-mark');
     }

@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 
 class DenominationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:denominations.index')->only('index'); 
+        $this->middleware('can:denominations.show')->only('show'); 
+        $this->middleware('can:denominations.create')->only('create'); 
+        $this->middleware('can:denominations.store')->only('store');
+        $this->middleware('can:denominations.edit')->only('edit'); 
+        $this->middleware('can:denominations.update')->only('update');
+        $this->middleware('can:denominations.destroy')->only('destroy'); 
+
+    }
+
     public function index(){
         return view('denominations.show-denominations');
     }

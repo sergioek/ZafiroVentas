@@ -12,7 +12,7 @@ use Livewire\Component;
 
 class Cart extends Component
 {
-
+ 
  
     public $amount;
     public $discount;

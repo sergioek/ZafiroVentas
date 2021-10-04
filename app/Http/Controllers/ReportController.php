@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:reports.index')->only('index'); 
+        $this->middleware('can:reports.month')->only('month');
+        
+    }
     public function index(){
 
         $seven = Carbon::now()->subDay(7)->format('Y-m-d');

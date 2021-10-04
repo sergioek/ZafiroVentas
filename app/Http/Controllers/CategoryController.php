@@ -13,6 +13,16 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:categories.create')->only('create'); 
+        $this->middleware('can:categories.store')->only('store');
+        $this->middleware('can:categories.edit')->only('edit'); 
+        $this->middleware('can:categories.update')->only('update');
+        $this->middleware('can:categories.destroy')->only('destroy');        
+           
+    }
     public function index(){
         return view('categories.show-categories');
     }

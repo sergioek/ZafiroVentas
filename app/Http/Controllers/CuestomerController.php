@@ -10,6 +10,17 @@ use Illuminate\Http\Request;
 
 class CuestomerController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:cuestomers.index')->only('index'); 
+        $this->middleware('can:cuestomers.show')->only('show'); 
+        $this->middleware('can:cuestomers.create')->only('create'); 
+        $this->middleware('can:cuestomers.store')->only('store');
+        $this->middleware('can:cuestomers.edit')->only('edit'); 
+        $this->middleware('can:cuestomers.update')->only('update');
+        $this->middleware('can:cuestomers.destroy')->only('destroy');  
+    }
     public function index(){
         return view('cuestomers.show-cuestomers');
 

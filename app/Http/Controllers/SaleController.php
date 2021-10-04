@@ -12,6 +12,20 @@ use Illuminate\Http\Request;
 
 class SaleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:sales.index')->only('index'); 
+        $this->middleware('can:sales.show')->only('show'); 
+        $this->middleware('can:sales.create')->only('create'); 
+        $this->middleware('can:sales.store')->only('store');
+        $this->middleware('can:sales.edit')->only('edit'); 
+        $this->middleware('can:sales.update')->only('update');
+        $this->middleware('can:sales.destroy')->only('destroy'); 
+        $this->middleware('can:sales.cancel')->only('cancel');
+        $this->middleware('can:sales.cart')->only('cart');  
+        $this->middleware('can:sales.cuestomer')->only('cuestomer'); 
+    }
     public function cart(){
      
          return view('sales.sale');

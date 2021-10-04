@@ -13,6 +13,19 @@ use Livewire\Livewire;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:products.index')->only('index'); 
+        $this->middleware('can:products.show')->only('show'); 
+        $this->middleware('can:products.create')->only('create'); 
+        $this->middleware('can:products.store')->only('store');
+        $this->middleware('can:products.edit')->only('edit'); 
+        $this->middleware('can:products.update')->only('update');
+        $this->middleware('can:products.destroy')->only('destroy'); 
+        $this->middleware('can:products.alert')->only('alert'); 
+
+    }
     public function index(){
         $id="all";
         return view('products.show-product',compact('id'));

@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class SaleDetailsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:detailsale.index')->only('index'); 
+        $this->middleware('can:detailsale.show')->only('show'); 
+    }
     public function show($id){
 
         $company=Company::find(1);

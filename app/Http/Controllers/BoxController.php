@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class BoxController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:boxes.create')->only('create'); 
+        $this->middleware('can:boxes.store')->only('store');
+        $this->middleware('can:boxes.edit')->only('edit'); 
+        $this->middleware('can:boxes.update')->only('update');
+        $this->middleware('can:boxes.destroy')->only('destroy');  
+    }
 
     public function index(){
         return view('boxes.box-show');

@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MarkSeeder::class);
         $this->call(DenominationSeeder::class);
         $this->call(ProductSeeder::class);
+        $this->call(RoleSeeder::class);
+
         $this->call(UserSeeder::class);
         $this->call(CuestomerSeeder::class);
         $this->call(BoxSeeder::class);
