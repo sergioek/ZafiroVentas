@@ -34,6 +34,25 @@ class CategorySeeder extends Seeder
             ',
         ]);
 
+        Category::create([
+            'name'=>'CHOMBAS',
+            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Chombas
+            ',
+        ]);
+
+
+        Category::create([
+            'name'=>'CAMPERAS',
+            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Camperas
+            ',
+        ]);
+
+        Category::create([
+            'name'=>'CHUPINES',
+            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Chupines
+            ',
+        ]);
+
         
         Category::create([
             'name'=>'SHORTS',
@@ -43,16 +62,12 @@ class CategorySeeder extends Seeder
 
         
         Category::create([
-            'name'=>'PERFUMES',
-            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Perfumes
-            ',
-        ]);
-
-        
-        Category::create([
             'name'=>'CALZAS',
             'image'=>'https://dummyimage.com/70x70/000000/fff&text=Calzas
             ',
         ]);
+
+
+
     }
 }

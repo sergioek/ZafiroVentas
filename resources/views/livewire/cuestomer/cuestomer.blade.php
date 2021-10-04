@@ -1,5 +1,11 @@
-<div>   
-    <x-button-create href="{{route('cuestomers.create')}}"/>
+<div>
+
+    @can('cuestomers.create')
+         <x-button-create href="{{route('cuestomers.create')}}"/>
+    @endcan
+   
+
+
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar el nombre de un cliente'}}"/> 
    
         <table class="table table-hover">
@@ -34,9 +40,16 @@
                                 {{$cuestomer->email}}
                             </td> 
                 
-    
-                    <x-options-edit href="{{route('cuestomers.edit',$cuestomer)}}"/>
-                    <x-options-destoy action="{{route('cuestomers.destroy',$cuestomer)}}"/>
+                    @can('cuestomers.edit')
+                        <x-options-edit href="{{route('cuestomers.edit',$cuestomer)}}"/>
+                    @endcan
+              
+                    @can('cuestomers.destroy')
+                         <x-options-destoy action="{{route('cuestomers.destroy',$cuestomer)}}"/>
+                    @endcan
+
+                   
+
                 </tr>
                     
                     @empty

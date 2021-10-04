@@ -1,7 +1,10 @@
 <div>
-    <x-button-create href="{{route('carts.index')}}"/>
- 
 
+    @can('carts.index')
+        <x-button-create href="{{route('carts.index')}}"/>
+    @endcan
+    
+ 
     <div class="row mt-3 mb-3">
         <div class="col-3">
             <span class="text-bold">Filtros por estado /vendedor:</span>

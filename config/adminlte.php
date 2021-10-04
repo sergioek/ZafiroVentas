@@ -226,26 +226,15 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'Buscar',
-            'topnav_right' =>true,
-        ],
+       
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'Buscar',
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+     
+      
      
         ['header' => 'account_settings'],
         [
@@ -257,17 +246,37 @@ return [
         ['header' => 'MENU'],
 
         [
+            'text'    => 'Arqueos de Caja',
+            'icon'    => 'fas fa-cash-register',
+            'submenu' => [
+                [
+                    'text' => 'Caja',
+                    'route'  => 'boxes.create',
+                    'can'  => 'boxes.create',
+                ],
+
+                [
+                    'text' => 'Movimientos',
+                    'route'  => 'boxes.index',
+                    'can'  => 'boxes.index',
+                ],
+            ],
+        ],
+
+
+        [
             'text'    => 'Categorias',
             'icon'    => 'fas fa-poll-h',
             'submenu' => [
                 [
                     'text' => 'Ver categorías',
-                    'url'  => 'categories',
+                    'route'  => 'categories.index',
                 ],
 
                 [
                     'text' => 'Nueva categoría',
-                    'url'  => 'categories/create',
+                    'route'  => 'categories.create',
+                    'can'=>'categories.create',
                 ],
   
             ],
@@ -280,12 +289,13 @@ return [
             'submenu' => [
                 [
                     'text' => 'Ver marcas',
-                    'url'  => 'marks',
+                    'route'  => 'marks.index',
                 ],
 
                 [
                     'text' => 'Nueva marca',
-                    'url'  => 'marks/create',
+                    'route'  => 'marks.create',
+                    'can'  => 'marks.create',
                 ],
   
             ],
@@ -300,17 +310,19 @@ return [
             'submenu' => [
                 [
                     'text' => 'Ver productos',
-                    'url'  => 'products',
+                    'route'  => 'products.index',
                 ],
 
                 [
                     'text' => 'Nuevo producto',
-                    'url'  => 'products/create',
+                    'route'  => 'products.create',
+                    'can'  => 'products.create',
                 ],
 
                 [
                     'text' => 'Stock',
-                    'url'  => 'alert/products',
+                    'route'  => 'products.alert',
+                    'can'  => 'products.create',
                 ],
             ],
         ],
@@ -321,12 +333,13 @@ return [
             'submenu' => [
                 [
                     'text' => 'Ver denominaciones',
-                    'url'  => 'denominations',
+                    'route'  => 'denominations.index',
                 ],
 
                 [
                     'text' => 'Crear denominaciones',
-                    'url'  => 'denominations/create',
+                    'route'  => 'denominations.create',
+                    'can'  => 'denominations.create',
                 ],
             ],
         ],
@@ -337,36 +350,19 @@ return [
             'submenu' => [
                 [
                     'text' => 'Ver Clientes',
-                    'url'  => 'cuestomers',
+                    'route'  => 'cuestomers.index',
                 ],
 
                 [
                     'text' => 'Agregar cliente',
-                    'url'  => 'cuestomers/create',
+                    'route'  => 'cuestomers.create',
+                    'can'  => 'cuestomers.create',
                 ],
             ],
         ],
 
 
         
-        [
-            'text'    => 'Arqueos de Caja',
-            'icon'    => 'fas fa-cash-register',
-            'submenu' => [
-                [
-                    'text' => 'Caja',
-                    'url'  => 'boxes/create',
-                ],
-
-                [
-                    'text' => 'Movimientos',
-                    'url'  => 'boxes',
-                ],
-            ],
-        ],
-
-
-
 
         [
             'text'    => 'Ventas',
@@ -374,17 +370,17 @@ return [
             'submenu' => [
                 [
                     'text' => 'Carrito',
-                    'url'  => 'carts/',
+                    'route'  => 'carts.index',
                 ],
 
                 [
                     'text' => 'Ventas por estado/usuario',
-                    'url'  => 'sales/',
+                    'route'  => 'sales.index',
                 ],
 
                 [
                     'text' => 'Ventas por cliente',
-                    'url'  => 'salescuestomer',
+                    'route'  => 'sales.cuestomer',
                 ],
             ],
         ],
@@ -396,78 +392,28 @@ return [
             'submenu' => [
                 [
                     'text' => 'Esta semana',
-                    'url'  => 'reports',
+                    'route'  => 'reports.index',
                 ],
 
                 [
                     'text' => 'Este mes',
-                    'url'  => 'reportsmonth',
+                    'route'  => 'reports.month',
                 ],
             ],
         ],
 
-
-        [
-            'text'    => 'Roles',
-            'icon'    => 'fas fa-user-tag',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-
-        [
-            'text'    => 'Permisos',
-            'icon'    => 'fas fa-unlock',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-
-
-        [
-            'text'    => 'Asignar',
-            'icon'    => 'fas fa-eye-slash',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
 
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-users',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Ver usuarios',
+                    
                 ],
             ],
         ],
 
-
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
     ],
 
     /*

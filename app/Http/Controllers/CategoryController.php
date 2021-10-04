@@ -46,7 +46,7 @@ class CategoryController extends Controller
 
                 $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/categories/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
-                $image="http://localhost/ventas/public/storage/categories/".$name_image;
+                $image="http://localhost/minegocio/public/storage/categories/".$name_image;
 
             }else{
                 return redirect()->route('categories.create')->with('alert','En tipo de archivo o formato no es correcto.');
@@ -83,7 +83,7 @@ class CategoryController extends Controller
 
                 $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/categories/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
-                $image="http://localhost/ventas/public/storage/categories/".$name_image;
+                $image="http://localhost/minegocio/public/storage/categories/".$name_image;
 
             }else{
                 return redirect()->route('categories.create')->with('alert','En tipo de archivo o formato no es correcto.');

@@ -29,10 +29,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'profile',
         'status',
         'phone',
-        'image',
     ];
 
     /**
@@ -66,8 +64,12 @@ class User extends Authenticatable
     ];
 
     public function adminlte_image(){
-        return 'https://picsum.photos/300/300';
-
+      if(empty(auth()->user()->profile_photo_path)){
+            return 'https://picsum.photos/300/300';
+      }else{
+            return "http://localhost/minegocio/public/storage/".auth()->user()->profile_photo_path;
+      }
+      
     }
 
     public function cart(){

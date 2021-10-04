@@ -1,5 +1,9 @@
 <div>
-    <x-button-create href="{{route('denominations.create')}}"/>
+
+    @can('denominations.create')
+        <x-button-create href="{{route('denominations.create')}}"/>
+    @endcan
+    
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar una denominacion'}}"/>  
 <div class="table-responsive">
     <table class="table table-hover">
@@ -24,8 +28,14 @@
                         <td><img src="{{$denomination->image}}" alt="70" width="70"></td> 
                 </div>
 
-                <x-options-edit href="{{route('denominations.edit',$denomination)}}"/>
-                <x-options-destoy action="{{route('denominations.destroy',$denomination)}}"/>
+                @can('denominations.edit')
+                     <x-options-edit href="{{route('denominations.edit',$denomination)}}"/>
+                @endcan
+               
+                @can('denominations.destroy')
+                      <x-options-destoy action="{{route('denominations.destroy',$denomination)}}"/>
+                @endcan
+              
             </tr>
                 
                 @empty

@@ -62,7 +62,7 @@ class ProductController extends Controller
 
                 $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/products/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
-                $image="http://localhost/ventas/public/storage/products/".$name_image;
+                $image="http://localhost/minegocio/public/storage/products/".$name_image;
 
             }else{
                 return redirect()->route('products.create')->with('alert','En tipo de archivo o formato.');
@@ -110,7 +110,7 @@ class ProductController extends Controller
 
                 $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/products/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
-                $image="http://localhost/ventas/public/storage/products/".$name_image;
+                $image="http://localhost/minegocio/public/storage/products/".$name_image;
 
             }else{
                 return redirect()->route('products.edit')->with('alert','Error en tipo de archivo o formato.');

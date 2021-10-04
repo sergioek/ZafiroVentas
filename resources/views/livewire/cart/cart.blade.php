@@ -1,7 +1,11 @@
 <div>
 <x-alerts/>
-<x-button-create href="{{route('products.index')}}"/>
-<br>
+
+@can('products.index')
+  <x-button-create href="{{route('products.index')}}"/>
+
+@endcan
+<br>  
 
 <div class="table-responsive">
     <table class="table table-hover col-lg-12">

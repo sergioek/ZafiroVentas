@@ -1,6 +1,9 @@
 <div>
-    
-    <x-button-create href="{{route('boxes.create')}}"/>
+    @can('boxes.create')
+         <x-button-create href="{{route('boxes.create')}}"/>      
+    @endcan   
+  
+
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar un movimiento por su fecha.'}}"/>  
  
 <div class="table-responsive ">

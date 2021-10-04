@@ -15,11 +15,11 @@ class ProductSeeder extends Seeder
     public function run()
     {
         Product::create([
-            'name'=>'Jean Taverniti',
+            'name'=>'Jeans',
             'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
-            'brcode'=>'123456',
+            'brcode'=>'1',
             'stock'=>10,
             'alerts'=>2,
             'color'=>'#ff0000',
@@ -30,11 +30,11 @@ class ProductSeeder extends Seeder
         ]);
 
         Product::create([
-            'name'=>'Camisas Taverniti',
+            'name'=>'Camisas',
             'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
-            'brcode'=>'123456',
+            'brcode'=>'2',
             'stock'=>10,
             'alerts'=>2,
             'color'=>'#ff0000',
@@ -45,11 +45,11 @@ class ProductSeeder extends Seeder
         ]);
 
         Product::create([
-            'name'=>'Camisetas Taverniti',
+            'name'=>'Camisetas',
             'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
-            'brcode'=>'123456',
+            'brcode'=>'3',
             'stock'=>10,
             'alerts'=>2,
             'color'=>'#ff0000',
@@ -61,33 +61,85 @@ class ProductSeeder extends Seeder
         ]);
 
         Product::create([
-            'name'=>'Shorts Taverniti',
+            'name'=>'Chomba',
             'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
-            'brcode'=>'123456',
+            'brcode'=>'4',
             'stock'=>10,
             'alerts'=>2,
             'color'=>'#ff0000',
             'category_id'=>4,
-            'waist_id'=>4,
-            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Shorts
+            'waist_id'=>3,
+
+            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Chomba
             ',
         ]);
 
         Product::create([
-            'name'=>'Perfumes natura',
+            'name'=>'Campera',
             'mark_id'=>1,
             'cost'=>1000,
             'price'=>2000,
-            'brcode'=>'123456',
+            'brcode'=>'5',
             'stock'=>10,
             'alerts'=>2,
             'color'=>'#ff0000',
             'category_id'=>5,
-            'waist_id'=>5,
-            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Perfumes
+            'waist_id'=>3,
+
+            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Campera
             ',
         ]);
+
+        Product::create([
+            'name'=>'Chupin',
+            'mark_id'=>1,
+            'cost'=>1000,
+            'price'=>2000,
+            'brcode'=>'6',
+            'stock'=>10,
+            'alerts'=>2,
+            'color'=>'#ff0000',
+            'category_id'=>6,
+            'waist_id'=>3,
+
+            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Chupin
+            ',
+        ]);
+
+        Product::create([
+            'name'=>'Short',
+            'mark_id'=>1,
+            'cost'=>1000,
+            'price'=>2000,
+            'brcode'=>'7',
+            'stock'=>10,
+            'alerts'=>2,
+            'color'=>'#ff0000',
+            'category_id'=>4,
+            'waist_id'=>7,
+            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Shorts
+            ',
+        ]);
+
+
+        Product::create([
+            'name'=>'Calzas',
+            'mark_id'=>1,
+            'cost'=>1000,
+            'price'=>2000,
+            'brcode'=>'8',
+            'stock'=>10,
+            'alerts'=>2,
+            'color'=>'#ff0000',
+            'category_id'=>8,
+            'waist_id'=>3,
+
+            'image'=>'https://dummyimage.com/70x70/000000/fff&text=Calzas
+            ',
+        ]);
+
+    
     }
 }

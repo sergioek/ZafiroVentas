@@ -1,5 +1,9 @@
 <div>
-    <x-button-create href="{{route('marks.create')}}"/>
+
+    @can('marks.create')
+        <x-button-create href="{{route('marks.create')}}"/>
+    @endcan
+    
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar una marca'}}"/>  
 
 <div class="table-responsive">
@@ -25,8 +29,14 @@
                         <td>{{$mark->telephone}}</td>  
                 </div>
 
-                <x-options-edit href="{{route('marks.edit',$mark)}}"/>
-                <x-options-destoy action="{{route('marks.destroy',$mark)}}"/>
+                @can('marks.edit', Model::class)
+                     <x-options-edit href="{{route('marks.edit',$mark)}}"/>
+                @endcan
+
+                @can('marks.destroy')
+                     <x-options-destoy action="{{route('marks.destroy',$mark)}}"/>
+                @endcan
+               
             </tr>
                 
                 @empty

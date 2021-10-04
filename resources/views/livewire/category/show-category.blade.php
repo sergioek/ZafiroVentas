@@ -1,6 +1,8 @@
 <div>
-
-    <x-button-create href="{{route('categories.create')}}"/>
+    @can('categories.create')
+        <x-button-create href="{{route('categories.create')}}"/> 
+    @endcan
+    
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar el nombre de una categoria'}}"/>  
 <div class="table-responsive ">
     <table class="table  table-hover">
@@ -26,9 +28,14 @@
                             </a>
                         </td> 
                 
+                @can('categories.edit')
+                    <x-options-edit href="{{route('categories.edit',$category)}}"/>
+                @endcan
 
-                <x-options-edit href="{{route('categories.edit',$category)}}"/>
-                <x-options-destoy action="{{route('categories.destroy',$category)}}"/>
+                @can('categories.destroy')
+                    <x-options-destoy action="{{route('categories.destroy',$category)}}"/> 
+                @endcan
+                
              
             </tr>
                 

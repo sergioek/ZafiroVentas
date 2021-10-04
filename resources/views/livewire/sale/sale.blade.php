@@ -1,4 +1,6 @@
 <div>
+
+    
     <a href="{{route('carts.index')}}">
       <button class="btn btn-info offset-lg-10 mb-3">Volver atras</button>
     </a>

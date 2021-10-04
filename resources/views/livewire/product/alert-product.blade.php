@@ -1,5 +1,8 @@
 <div>
-    <x-button-create href="{{route('products.create')}}"/>
+    @can('products.create')
+         <x-button-create href="{{route('products.create')}}"/> 
+    @endcan
+  
     <x-search-component placeholder="{{$placeholder='Ingrese un texto para buscar un producto por nombre'}}"/>  
     <div class="container-row mt-3">
         <strong>Filtro de productos:</strong>
@@ -61,8 +64,14 @@
                 </td>
             </form>
 
-            <x-options-edit href="{{route('products.edit',$product)}}"/>
-            <x-options-destoy action="{{route('products.destroy',$product)}}"/>
+            @can('products.edit')
+                <x-options-edit href="{{route('products.edit',$product)}}"/> 
+            @endcan
+
+            @can('products.destroy')
+                 <x-options-destoy action="{{route('products.destroy',$product)}}"/> 
+            @endcan
+          
             </tr>
                 
                 @empty

@@ -43,7 +43,7 @@ class DenominationController extends Controller
 
                 $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/denominations/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
-                $image="http://localhost/ventas/public/storage/denominations/".$name_image;
+                $image="http://localhost/minegocio/public/storage/denominations/".$name_image;
 
             }
         }     
@@ -84,7 +84,7 @@ class DenominationController extends Controller
 
                 $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/denominations/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
-                $image="http://localhost/ventas/public/storage/denominations/".$name_image;
+                $image="http://localhost/minegocio/public/storage/denominations/".$name_image;
 
             }
         }     
