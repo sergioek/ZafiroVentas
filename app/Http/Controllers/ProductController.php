@@ -143,7 +143,7 @@ class ProductController extends Controller
             $id="all";
             return redirect()->route('products.index')->with('success','Se elimino un producto.');
         ;
-        } catch (Exception $e) {
+        }catch (Exception $e) {
            
             return redirect()->route('products.index')->with('alert','No se pudo eliminar un producto porque esta asociado a una venta.');
         }

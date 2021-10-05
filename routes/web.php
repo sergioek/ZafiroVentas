@@ -10,10 +10,12 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SaleDetailsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Categories;
 use App\Http\Livewire\ShowCategory;
 use App\Models\Product;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +76,7 @@ Route::resource('reports', ReportController::class)->middleware(['auth:sanctum',
 
 Route::get('reportsmonth', [ReportController::class,'month'])->middleware(['auth:sanctum', 'verified','status'])->name('reports.month');
 
-
+Route::resource('users', UserController::class)->middleware(['auth:sanctum', 'verified','status']);
 
 
 

@@ -409,7 +409,8 @@ return [
             'submenu' => [
                 [
                     'text' => 'Ver usuarios',
-                    
+                    'route'=>'users.index',
+                    'can'=>'users.index',
                 ],
             ],
         ],
