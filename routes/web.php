@@ -32,8 +32,8 @@ use App\Models\User;
 Route::view('/', 'auth.login')->name('login.index');
 
 Route::middleware(['auth:sanctum', 'verified','status'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+    return view('dashboard.dashboard');
+})->name('dashboard.index');
 
 
 

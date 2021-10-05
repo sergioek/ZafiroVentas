@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Jetstream\HasProfilePhoto;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -73,6 +74,7 @@ class User extends Authenticatable
       
     }
 
+  
     public function cart(){
         return $this->hasMany(CartProduct::class);
     }

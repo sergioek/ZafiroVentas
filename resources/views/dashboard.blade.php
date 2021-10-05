@@ -9,7 +9,7 @@
 @section('content')
     <p>Sistema de ventas</p>
 @stop
-
+    
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop

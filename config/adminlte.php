@@ -246,6 +246,14 @@ return [
         ['header' => 'MENU'],
 
         [
+            'text'    => 'Inicio',
+            'icon'    => 'fas fa-home',
+            'route'=>'dashboard.index',
+        ],
+
+
+
+        [
             'text'    => 'Arqueos de Caja',
             'icon'    => 'fas fa-cash-register',
             'submenu' => [
