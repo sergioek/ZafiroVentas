@@ -12,13 +12,13 @@
         <div class="form-check form-check-inline">
            
 
-            <input class="form-check-input" type="radio" wire:model="filter" value="all" checked>
+            <input class="form-check-input" type="radio" wire:model.debounce.1000ms="filter" value="all" checked>
             <label class="form-check-label" for="inlineCheckbox1">TODOS</label>
             
         </div>
             @forelse ($category as $category)
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" wire:model="filter" value="{{$category->id}}">
+                    <input class="form-check-input" type="radio" wire:model.debounce.1000ms="filter" value="{{$category->id}}">
                     <label class="form-check-label" for="inlineCheckbox1">{{$category->name}}</label>
                  </div>
             @empty
@@ -64,7 +64,7 @@
                         </button>
                     </td>
                     @else
-                       <input type="number" class="form-control" name="amount" id="" max="{{$product->stock}}" min="1" value="1" wire:model="amount">
+                       <input type="number" class="form-control" name="amount" id="" max="{{$product->stock}}" min="1" value="1" wire:model.debounce.1000ms="amount">
                        <td>
                             <button class="btn btn-success" wire:click="addCart({{$product->id}},{{$product->price}})">
                             <i class="fas fa-cart-arrow-down"></i>Agregar

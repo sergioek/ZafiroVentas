@@ -10,7 +10,7 @@
             <span class="text-bold">Filtros por estado /vendedor:</span>
         </div>
         <div class="col-lg-9">
-            <select name="" id="" class="form-control" wire:model="status">
+            <select name="" id="" class="form-control" wire:model.debounce.1000ms="status">
                 <option selected value="ALL">TODOS</option>
                 <option  value="PAID">PAGADO</option>
                 <option  value="PENDING">PENDIENTE</option>

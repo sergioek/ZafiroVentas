@@ -11,7 +11,7 @@
             <span class="text-bold">Filtros por cliente:</span>
         </div>
         <div class="col-lg-10">
-            <select name="" id="" class="form-control" wire:model="status">
+            <select name="" id="" class="form-control" wire:.debounce.1000ms="status">
                 <option selected value="ALL">TODOS</option>
                 @foreach ($cuestomers as $cuestomer)
                      <option value="{{$cuestomer->id}}" >{{$cuestomer->name . " ". $cuestomer->lastname}}</option>
