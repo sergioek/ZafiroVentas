@@ -27,7 +27,7 @@
           <div class="mb-3 row">
             <label for="staticEmail" class="col-2 col-form-label ml-3">DNI del cliente:</label>
             <div class="col-7">
-              <input type="text" class="form-control" id="" placeholder="Ingrese el DNI del Cliente" wire:model="search">
+              <input type="text" class="form-control" id="" placeholder="Ingrese el DNI del cliente o su nombre" wire:model.debounce.500ms="search">
             </div>
           </div>
 
@@ -76,7 +76,7 @@
    
     
     <div class="form-check form-check-inline ml-4">
-        <input class="form-check-input" type="radio" name="status" id="inlineRadio3" value="PAID" >
+        <input class="form-check-input" type="radio" name="status" id="inlineRadio3" value="PAID" disabled >
         <label class="form-check-label mr-2" for="inlineRadio3">MercadoPago</label>
         <img src="https://img.icons8.com/color/20/000000/mercado-pago.png"/>
     </div>
@@ -90,7 +90,7 @@
  
 <div class="input-group mb-3 col-lg-9">
   <span class="input-group-text text-bold bg-success">PAGADO $:</span>
-  <input type="number" class="form-control" min="0" step="0.1" wire:model="paid" name="cash">
+  <input type="number" class="form-control" min="0" step="0.1" wire:model.debounce.500ms="paid" name="cash">
   @error('cash')
   <br>
     <small class="text-danger">*{{'El campo pagado es obligatorio'}}</small>

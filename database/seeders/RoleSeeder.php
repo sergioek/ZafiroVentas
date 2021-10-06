@@ -21,6 +21,10 @@ class RoleSeeder extends Seeder
         $admin=Role::create(['name'=>'ADMIN']);
         $employee=Role::create(['name'=>'EMPLOYEE']);
 
+        $permission = Permission::create(['name' => 'companies.edit'])->syncRoles($admin);
+        $permission = Permission::create(['name' => 'companies.update'])->syncRoles($admin);
+
+
         $permission=Permission::create(['name' => 'categories.index'])->syncRoles([$admin,$employee]);
         $permission = Permission::create(['name' => 'categories.show'])->syncRoles([$admin,$employee]);
         $permission = Permission::create(['name' => 'categories.create'])->syncRoles($admin);

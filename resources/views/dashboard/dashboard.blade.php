@@ -2,11 +2,13 @@
 
 @section('title', 'Dashboard - Sistema de Ventas')
 
+
 @section('content_header')
     <h1 class="text-bold text-primary">{{'Bienvenido' . ' '.auth()->user()->name}}</h1>
 @stop
 
 @section('content')
+    <x-alerts/>
     <p class="text-bold">Sistema de ventas</p>
     <p>Aquí puede visualizar algunas tareas del sistema.</p>
     @include('dashboard.content-dashboard')

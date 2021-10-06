@@ -31,7 +31,7 @@ return [
     */
 
     'use_ico_only' => true,
-    'use_full_favicon' => false,
+    'use_full_favicon' =>false,
 
     /*
     |--------------------------------------------------------------------------
@@ -250,6 +250,14 @@ return [
             'icon'    => 'fas fa-home',
             'route'=>'dashboard.index',
         ],
+
+        [
+            'text'    => 'Empresa',
+            'icon'    => 'far fa-building',
+            'url'=>'companies/1/edit',
+            'can'=>'companies.edit',
+        ],
+
 
 
 

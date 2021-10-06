@@ -3,6 +3,7 @@
 use App\Http\Controllers\BoxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CuestomerController;
 use App\Http\Controllers\DenominationController;
 use App\Http\Controllers\MarkController;
@@ -40,6 +41,8 @@ Route::middleware(['auth:sanctum', 'verified','status'])->get('/dashboard', func
 Route::middleware(['auth:sanctum', 'verified','status'])->get('/user-profile', function () {
     return view('profile.profile');
 })->name('user.profile');
+
+Route::resource('companies', CompanyController::class)->middleware(['auth:sanctum', 'verified','status']);
 
 Route::resource('categories', CategoryController::class)->middleware(['auth:sanctum', 'verified','status']);
 
