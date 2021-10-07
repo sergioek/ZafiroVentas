@@ -264,6 +264,7 @@ return [
         [
             'text'    => 'Arqueos de Caja',
             'icon'    => 'fas fa-cash-register',
+            'can'  => 'boxes.create',
             'submenu' => [
                 [
                     'text' => 'Caja',

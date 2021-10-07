@@ -9,7 +9,8 @@
              <h2 class="fs-2 text-center text-success">ABIERTO</h2> 
         @endif
         
-        <h4 class="fs-2 text-center text-secondary">Disponible $:{{number_format($total,2)}}</h4>
+        <h4 class="fs-2 text-center text-info">Total en caja $:{{number_format($total,2)}}</h4>
+        <h4 class="fs-2 text-center text-secondary">Ventas $:{{number_format($sales,2)}}</h4>
         
         <div class="container mt-3">
         <form action="{{route('boxes.store')}}" method="POST">
@@ -29,7 +30,7 @@
 
             <div class="input-group mb-3 col-lg-9">
                 <span class="input-group-text text-bold bg-warning">MONTO$:</span>
-                <input type="number" class="form-control" name="amount" step="0.1" placeholder="Indique el monto. Si elije cerrar caja debe coincidir con el disponible.">
+                <input type="number" class="form-control" name="amount" step="0.1" placeholder="Indique el monto. Si elije cerrar caja, el valor deberia ser igual al total de ventas.">
                 @error('amount')
                     <br>
                         <small class="text-danger">*{{$message}}</small>

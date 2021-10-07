@@ -28,6 +28,7 @@
           <th scope="col" class="text-dark">Cliente</th> 
           <th scope="col" class="text-dark">DNI</th>  
           <th scope="col" class="text-dark">Estado</th>  
+          <th scope="col" class="text-dark">Notas</th>  
         </tr>
         
     </thead>
@@ -41,7 +42,7 @@
               <td class="text-center">{{$sale->cuestomer->name . " ". $sale->cuestomer->lastname}}</td>
               <td class="text-center">{{$sale->cuestomer->dni}}</td> 
               <td class="text-center">{{$sale->status}}</td> 
-
+              <td class="text-center">{{$sale->notes}}</td> 
        </tr>
     
     </tbody>

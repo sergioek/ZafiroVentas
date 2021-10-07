@@ -57,7 +57,7 @@
                     </td>
 
                     <td>
-                        <input type="number" name="" id="" class="form-control" placeholder="Cantidad" min="1" max="{{$cart->product->stock}}" wire:model.debounce.1000ms="amount">
+                        <input type="number" name="" id="" class="form-control" placeholder="Cantidad" min="1" max="{{$cart->product->stock}}" wire:model.debounce.300ms="amount">
                     </td>
 
                     <td>

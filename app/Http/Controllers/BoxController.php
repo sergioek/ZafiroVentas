@@ -29,12 +29,10 @@ class BoxController extends Controller
 
        if($boxes->status!='CLOSE' && $boxes->date!=$date){
            $sales=Sale::all()->where('date',$boxes->date)->whereIn('status',['PAID','PENDING'])->sum('cash');
-          $open=Box::all()->where('date',$boxes->date)->where('status','OPEN')->sum('amount');
-          $extract=Box::all()->where('date',$boxes->date)->where('status','EXTRACT')->sum('amount');
            $box=Box::create([
             'date'=>$boxes->date,
             'status'=>'CLOSE',
-            'amount'=>$sales+$open-$extract,
+            'amount'=>$sales,
             'notes'=>'Cerrado automaticamente por sistema',
             'user_id'=>1,
         ]); 
@@ -42,21 +40,21 @@ class BoxController extends Controller
        }else{
 
         if($boxes->status=='CLOSE'){
+            $sales=0;
             $total=0;
             $state='CLOSE';
         }else{
 
-            $date=Carbon::now()->format('Y-m-d');
             $sales=Sale::all()->where('date',$date)->whereIn('status',['PAID','PENDING'])->sum('cash');
             $open=Box::all()->where('date',$date)->where('status','OPEN')->sum('amount');
             $extract=Box::all()->where('date',$date)->where('status','EXTRACT')->sum('amount');
-            $close=Box::all()->where('date',$date)->where('status','CLOSE')->sum('amount');
-            $total=$sales+$open-$extract-$close;
+           //$close=Box::all()->where('date',$date)->where('status','CLOSE')->sum('amount');
+            $total=$sales+$open-$extract;
             $state='OPEN';
 
         }
         
-        return view('boxes.box',compact('total','state'));
+        return view('boxes.box',compact('total','state','sales'));
 
 
        }
@@ -68,21 +66,24 @@ class BoxController extends Controller
         $sales=Sale::all()->where('date',$date)->whereIn('status',['PAID','PENDING'])->sum('cash');
             $open=Box::all()->where('date',$date)->where('status','OPEN')->sum('amount');
             $extract=Box::all()->where('date',$date)->where('status','EXTRACT')->sum('amount');
-            $amount=$sales+$open-$extract;
+           // $close=Box::all()->where('date',$date)->where('status','CLOSE')->sum('amount');
+            $total=$sales+$open-$extract;
 
     if($request->status=='CLOSE'){
-        if($request->amount<$amount){
-            return redirect()->route('boxes.create')->with('alert','El cierre de caja es incosistente con las aperturas, ventas y extracciones. Revise la contabilidad y el dinero disponible.'); 
+        if($request->amount<$sales){
+            return redirect()->route('boxes.create')->with('alert','El cierre de caja es incosistente con el total de las ventas.'); 
         }
     }
 
     if($request->status=='EXTRACT'){
-        if($request->amount>$amount){
-            return redirect()->route('boxes.create')->with('alert','No puede extraer mas dinero que el disponible.'); 
+        if($request->amount>$total){
+            return redirect()->route('boxes.create')->with('alert','No puede extraer mas dinero que el total disponible en caja.'); 
         }
     }
 
-        
+        if(empty($request->amount)){
+            $request->amount=0;
+        }
         $box=Box::create([
             'date'=>$date,
             'status'=>$request->status,

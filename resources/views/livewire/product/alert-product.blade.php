@@ -13,7 +13,7 @@
             
             <input class="form-check-input ml-2" type="radio" wire:model="filter" value="for-exhausted">
             <label class="form-check-label" for="inlineCheckbox1">POR AGOTARSE:</label>
-            <input type="number" class="form-control ml-2 col-2"  min="1" max="10000" value="1" wire:model="alert">
+            <input type="number" class="form-control ml-2 col-2"  min="1" max="10000" value="1" wire:model.debounce.300ms="alert">
     </div>
 </div>          
             
