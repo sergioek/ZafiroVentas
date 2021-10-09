@@ -423,6 +423,7 @@ return [
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-users',
+            'can'=>'users.index',
             'submenu' => [
                 [
                     'text' => 'Ver usuarios',

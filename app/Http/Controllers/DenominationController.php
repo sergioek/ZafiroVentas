@@ -41,7 +41,7 @@ class DenominationController extends Controller
         }else{
             if ($type_image=="image/jpeg" or $type_image=="image/png" ) {
 
-                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/denominations/';
+                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/minegocio/public/storage/denominations/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
                 $image="http://localhost/minegocio/public/storage/denominations/".$name_image;
 
@@ -82,7 +82,7 @@ class DenominationController extends Controller
         }else{
             if ($type_image=="image/jpeg" or $type_image=="image/png" ) {
 
-                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/denominations/';
+                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/minegocio/public/storage/denominations/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
                 $image="http://localhost/minegocio/public/storage/denominations/".$name_image;
 

@@ -4,13 +4,17 @@
 @section('title', 'Perfil')
 
 @section('content_header')
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@livewireScripts
     <h1>Perfil</h1>
 @stop
 
 @section('content')
     <p>Bienvenido a la configuracion de perfil.</p>
     <x-app-layout>
-
+   
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
@@ -42,7 +46,7 @@
                 <x-jet-section-border />
     
                 <div class="mt-10 sm:mt-0">
-                    @livewire('profile.delete-user-form')
+                  
                 </div>
             @endif
         </div>

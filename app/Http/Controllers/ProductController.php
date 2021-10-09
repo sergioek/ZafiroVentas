@@ -60,7 +60,7 @@ class ProductController extends Controller
         }else{
             if ($type_image=="image/jpeg" or $type_image=="image/png" ) {
 
-                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/products/';
+                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/minegocio/public/storage/products/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
                 $image="http://localhost/minegocio/public/storage/products/".$name_image;
 
@@ -108,7 +108,7 @@ class ProductController extends Controller
         }else{
             if ($type_image=="image/jpeg" or $type_image=="image/png" ) {
 
-                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/products/';
+                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/minegocio/public/storage/products/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
                 $image="http://localhost/minegocio/public/storage/products/".$name_image;
 

@@ -44,7 +44,7 @@ class CategoryController extends Controller
         }else{
             if ($type_image=="image/jpeg" or $type_image=="image/png" ) {
 
-                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/categories/';
+                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/minegocio/public/storage/categories/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
                 $image="http://localhost/minegocio/public/storage/categories/".$name_image;
 
@@ -81,7 +81,7 @@ class CategoryController extends Controller
         }else{
             if ($type_image=="image/jpeg" or $type_image=="image/png" ) {
 
-                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/storage/categories/';
+                $folder_final=$_SERVER['DOCUMENT_ROOT'].'/minegocio/public/storage/categories/';
                 move_uploaded_file($_FILES['image']['tmp_name'],$folder_final.$name_image);
                 $image="http://localhost/minegocio/public/storage/categories/".$name_image;
 

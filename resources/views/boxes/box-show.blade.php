@@ -9,6 +9,7 @@
 @section('content')
     <p>Ver los movimientos de caja.</p>
     <x-alerts/>
+   
     @livewire('boxes.box-show')
    
 @stop
